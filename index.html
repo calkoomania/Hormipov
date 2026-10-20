@@ -233,7 +233,7 @@ button{cursor:pointer;-webkit-tap-highlight-color:transparent}
  </section>
 
  <section id="pass">
-  <div style="font-size:43px;margin-top:12px">🔒</div>
+  <div style="font-size:43px;margin-top:12px">Lockscreen</div>
   <h2>Introduce el código</h2>
   <p>iPhone de Armando</p>
   <div id="dots"><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></div>
@@ -257,13 +257,13 @@ button{cursor:pointer;-webkit-tap-highlight-color:transparent}
 
  <section id="home">
   <div id="homeheader">
-   <div><h1>Armando ♡</h1><div style="font-size:12px;text-shadow:0 1px 4px #333">Tu martes, de un vistazo.</div></div>
+   <div><h1>Armando</h1><div style="font-size:12px;text-shadow:0 1px 4px #333">Tu martes, de un vistazo.</div></div>
    <div id="profile">A</div>
   </div>
   <div id="widget">
    <div style="font-size:12px">MARTES · OCTUBRE 20</div>
    <div class="big" id="homeclock">9:41</div>
-   <p>Hay días que empiezan normales y terminan siendo un desastre.</p>
+   <p>Comprar leche.</p>
   </div>
   <div id="apps">
    <button class="app" onclick="openApp('x')"><div class="appicon" style="background:#171719">𝕏<span id="xbadge" class="redbadge">99+</span></div><div class="appname">X</div></button>
@@ -299,22 +299,22 @@ let storyTimers=[],storyStarted=false,toastTimer=null;
 const $=id=>document.getElementById(id);
 
 const events=[
- {delay:1200,type:"x",title:"X",headline:"@viralau · hace un momento",text:"¿ARMANDO CITANDO UN EDIT DE BRIAN Y MATEO DESDE SU CUENTA PÚBLICA? 😭😭",icon:"𝕏",cls:"xicon"},
+ {delay:1200,type:"x",title:"X",headline:"@calkoomania · hace un momento",text:"¿ARMANDO CITANDO UN AU DE BRIAN Y MATEO?",icon:"𝕏",cls:"xicon"},
  {delay:3300,type:"x",title:"X",headline:"A alguien le gustó tu publicación",text:"Tu cita recibió 1,284 Me gusta. La gente está empezando a compartirla.",icon:"𝕏",cls:"xicon"},
- {delay:5200,type:"mateo",title:"Mateo",headline:"iMessage · ahora",text:"JAJAJAJAJA ARMANDO ¿QUÉ ES LO QUE ANDAS VIENDO?",icon:"M",cls:"msgicon"},
- {delay:7200,type:"x",title:"X",headline:"Tu publicación se está difundiendo",text:"3,912 reposts y contando. Tu nombre está apareciendo por todas partes.",icon:"𝕏",cls:"xicon"},
+ {delay:5200,type:"mateo",title:"Mateo",headline:"iMessage · ahora",text:"NMMS ARMANDO ¿QUÉ ES LO QUE ANDAS VIENDO?",icon:"M",cls:"msgicon"},
+ {delay:7200,type:"x",title:"X",headline:"@brimiga nation · hace un momento",text:"UNA VICTORIA MÁS AL BRIMIGA 🔥",icon:"𝕏",cls:"xicon"},
  {delay:9400,type:"brian",title:"Brian",headline:"Llamada perdida",text:"Brian intentó llamarte. Toca para ver las llamadas recientes.",icon:"☎",cls:"callicon"},
- {delay:11200,type:"brian",title:"Brian",headline:"iMessage · ahora",text:"Armando. ¿Qué pasó? Acabo de ver tu cuenta.",icon:"B",cls:"msgicon"},
- {delay:13100,type:"x",title:"X",headline:"@briam_edits te mencionó",text:"NO PUEDE SER, ¿VISTE LO QUE PUBLICÓ ARMANDO? 💀",icon:"𝕏",cls:"xicon"},
- {delay:14900,type:"mateo",title:"Mateo",headline:"iMessage · ahora",text:"No sabía que te interesaban TANTO esos edits conmigo y Brian JAJAJA",icon:"M",cls:"msgicon"},
+ {delay:11200,type:"brian",title:"Brian",headline:"iMessage · ahora",text:"wtf con tu citado? qué es brimiga y hormian?",icon:"B",cls:"msgicon"},
+ {delay:13100,type:"x",title:"X",headline:"@Hormian nation publicó una respuesta",text:"HORMIAN CANON!",icon:"𝕏",cls:"xicon"},
+ {delay:14900,type:"mateo",title:"Mateo",headline:"iMessage · ahora",text:"No sabía que te interesaban TANTO esas cosas conmigo y Brian XDD",icon:"M",cls:"msgicon"},
  {delay:16800,type:"x",title:"X",headline:"¡Tu publicación es viral!",text:"8,506 Me gusta · 5,204 reposts · 1,908 respuestas",icon:"𝕏",cls:"xicon"},
  {delay:18700,type:"brian",title:"Brian",headline:"Llamada perdida",text:"Brian intentó llamarte por segunda vez.",icon:"☎",cls:"callicon"},
- {delay:20600,type:"brian",title:"Brian",headline:"iMessage · ahora",text:"Por favor, contéstame. Tenemos que hablar antes de que alguien se dé cuenta.",icon:"B",cls:"msgicon"},
- {delay:22500,type:"x",title:"X",headline:"@fandomcentral publicó una respuesta",text:"EL NOVIO DE BRIAN ACABA DE EXPONERSE SOLITO 😭😭",icon:"𝕏",cls:"xicon"},
- {delay:24500,type:"mateo",title:"Mateo",headline:"iMessage · ahora",text:"Espera. ¿Brian ya te escribió? Porque acaba de preguntarme por qué estoy en tus menciones.",icon:"M",cls:"msgicon"},
+ {delay:20600,type:"brian",title:"Brian",headline:"iMessage · ahora",text:"we tenemos q hablar, ya somos tendencia en twitter",icon:"B",cls:"msgicon"},
+ {delay:22500,type:"x",title:"X",headline:"@Akuu publicó una respuesta",text:"O sea brimiga canon o neh",icon:"𝕏",cls:"xicon"},
+ {delay:24500,type:"mateo",title:"Mateo",headline:"iMessage · ahora",text:"brian acaba de preguntarme pq te damos asco, pendejo",icon:"M",cls:"msgicon"},
  {delay:26500,type:"x",title:"X",headline:"Tu publicación recibió más interacciones",text:"12,804 Me gusta · 9,201 reposts · 3,410 respuestas",icon:"𝕏",cls:"xicon"},
  {delay:28600,type:"brian",title:"Brian",headline:"Llamada perdida",text:"Brian intentó llamarte por tercera vez.",icon:"☎",cls:"callicon"},
- {delay:30700,type:"brian",title:"Brian",headline:"iMessage · ahora",text:"Amor, por favor. No respondas a nadie todavía. ¿Podemos hablar?",icon:"B",cls:"msgicon"}
+ {delay:30700,type:"brian",title:"Brian",headline:"iMessage · ahora",text:"a la verga, pq andas leyendo esas cosas?",icon:"B",cls:"msgicon"}
 ];
 
 let chats={
