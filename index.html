@@ -3,117 +3,241 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Armando's iPhone</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#111111">
+<title>Armando · iPhone</title>
 <style>
+:root {
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",
+  "Helvetica Neue",Arial,sans-serif;
+  color:#fff;
+  --glass:rgba(245,245,250,.20);
+}
 *{box-sizing:border-box}
-:root{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif}
-body{margin:0;background:#17151b;display:grid;place-items:center;min-height:100dvh;color:white}
-#phone{position:relative;width:min(410px,100vw);height:min(850px,100dvh);min-height:600px;overflow:hidden;background:#17151b}
-.wall {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+body{margin:0;background:#17171b;display:flex;justify-content:center;min-height:100dvh}
+button,input{font:inherit}
+button{cursor:pointer;-webkit-tap-highlight-color:transparent}
+#phone{
+  position:relative;width:min(430px,100vw);height:100dvh;
+  min-height:600px;overflow:hidden;background:#25212d;
+  isolation:isolate;
 }
-
-#lock {
-  background-image:
-    linear-gradient(#00000022, #00000030),
-    url("86ae77ba75fd3710cfbc1b9ef6a96de2.jpg");
-  background-size: cover;
-  background-position: center;
+.wall{
+  position:absolute;inset:0;background-size:cover;background-position:center;
 }
-
-#home {
-  background-image:
-    linear-gradient(#00000020, #00000035),
-    url("b459eaadd4c843dff78de783513ab8e5.jpg");
-  background-size: cover;
-  background-position: center;
+#lockwall{
+  background-image:linear-gradient(#0002,#0002),url("86ae77ba75fd3710cfbc1b9ef6a96de2.jpg");
 }
-#lock{position:absolute;inset:0;text-align:center;padding:65px 22px 30px}
-#date{font-size:16px;font-weight:500}
-#clock{font-size:clamp(70px,20vw,96px);font-weight:200;letter-spacing:-4px;line-height:1.15;margin-top:8px}
-#hint{margin-top:35px;font-size:15px;text-shadow:0 1px 5px #333}
-#notifications{margin-top:20px;text-align:left}
-.notice{padding:14px;margin:8px 0;background:#e5e2e4c9;color:#222;border-radius:18px;backdrop-filter:blur(20px);font-size:14px}
-.notice small{display:block;color:#555;margin-bottom:5px}
-#pass{position:absolute;inset:0;display:none;text-align:center;padding:65px 25px;background:#777777a8;backdrop-filter:blur(30px)}
-#pass h2{font-size:22px;font-weight:600}
-#pass p{font-size:14px}
+#homewall{
+  background-image:linear-gradient(#10101b20,#10101b30),url("b459eaadd4c843dff78de783513ab8e5.jpg");
+}
+#status{
+  position:absolute;top:0;left:0;right:0;height:42px;
+  padding:12px 28px 0;display:flex;justify-content:space-between;
+  font-size:12px;font-weight:600;z-index:4;
+  text-shadow:0 1px 4px #333;
+}
+#lock,#home{position:absolute;inset:0;overflow:hidden}
+#lock{touch-action:pan-y}
+#lockhead{text-align:center;padding-top:67px;text-shadow:0 2px 8px #333}
+#date{font-size:17px;font-weight:550}
+#clock{font-size:clamp(76px,22vw,100px);font-weight:200;letter-spacing:-5px;line-height:1.12;margin-top:4px}
+#lockextras{display:flex;justify-content:center;align-items:center;gap:22px;margin-top:10px;font-size:12px}
+#weather{font-size:14px}
+#notifications{
+  position:absolute;top:290px;left:13px;right:13px;bottom:105px;
+  overflow-y:auto;scrollbar-width:none;
+  display:flex;flex-direction:column;gap:8px;align-items:stretch;
+  mask-image:linear-gradient(to bottom,transparent,#000 3%,#000 100%);
+  padding-top:8px;
+}
+#notifications::-webkit-scrollbar{display:none}
+.notice{
+  width:100%;flex-shrink:0;display:flex;gap:10px;align-items:flex-start;
+  text-align:left;border:1px solid #ffffff55;border-radius:19px;
+  padding:11px;background:rgba(242,240,247,.80);color:#17171a;
+  backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  box-shadow:0 3px 15px #0002;
+  animation:arrive .45s cubic-bezier(.2,.8,.3,1) both;
+}
+@keyframes arrive{
+  from{opacity:0;transform:translateY(-18px) scale(.97)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+.nicon{
+  width:35px;height:35px;border-radius:10px;display:grid;
+  place-items:center;flex-shrink:0;color:white;font-size:17px;font-weight:700;
+}
+.xicon{background:#161619}
+.msgicon{background:#55c76b}
+.callicon{background:#49b966}
+.ncontent{flex:1;min-width:0}
+.nrow{display:flex;justify-content:space-between;gap:5px;font-size:11px;color:#54545b;margin-bottom:3px}
+.nrow b{font-weight:650;letter-spacing:.3px}
+.ncontent strong{display:block;font-size:13px;margin-bottom:2px;font-weight:650}
+.ncontent p{font-size:12px;line-height:1.35;margin:0;overflow-wrap:anywhere}
+#lockbottom{
+  position:absolute;bottom:17px;left:0;right:0;
+  display:flex;align-items:center;justify-content:space-between;padding:0 28px;
+}
+.lockcircle{
+  border:1px solid #ffffff65;background:#ffffff38;color:white;
+  width:49px;height:49px;border-radius:50%;font-size:21px;
+  backdrop-filter:blur(20px);
+}
+#lockhint{
+  font-size:12px;background:#ffffff30;border-radius:20px;padding:9px 14px;
+  backdrop-filter:blur(20px);animation:pulse 2s infinite;
+}
+@keyframes pulse{50%{opacity:.65}}
+#pass{
+  position:absolute;inset:0;z-index:8;display:none;text-align:center;
+  background:rgba(75,73,81,.76);backdrop-filter:blur(38px);
+  -webkit-backdrop-filter:blur(38px);padding:65px 22px 25px;
+  animation:appear .28s ease;
+}
+@keyframes appear{from{opacity:0}to{opacity:1}}
+#pass h2{font-size:21px;font-weight:600;margin:18px 0 8px}
+#pass p{font-size:14px;margin:0}
 #dots{display:flex;justify-content:center;gap:15px;margin:25px}
-.dot{width:12px;height:12px;border:1px solid white;border-radius:50%}
+.dot{height:11px;width:11px;border:1px solid white;border-radius:50%}
 .dot.filled{background:white}
-#keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:290px;margin:25px auto}
-.key{height:65px;width:65px;justify-self:center;border:0;border-radius:50%;background:#ffffff30;color:white;font-size:27px;font-weight:300}
+#passerror{height:20px;font-size:12px;margin:12px 0}
+#keypad{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:10px;
+  max-width:285px;margin:10px auto 20px;
+}
+.key{
+  justify-self:center;width:69px;height:69px;border:0;border-radius:50%;
+  background:#ffffff30;color:white;font-size:28px;font-weight:300;
+  transition:background .15s,transform .12s;
+}
+.key:active{background:#ffffff60;transform:scale(.92)}
 .key small{display:block;font-size:9px;letter-spacing:1px}
-#message{font-size:13px;min-height:20px}
-#home{display:none;position:absolute;inset:0;padding:65px 22px 100px}
-#home h2{font-size:27px;font-weight:650}
-#home p{font-size:14px;color:#ffffffbd}
-#apps{display:grid;grid-template-columns:repeat(4,1fr);gap:25px 10px;margin-top:40px}
-.app{background:none;border:0;color:white;font-size:11px;text-align:center}
-.app span{display:grid;place-items:center;width:57px;height:57px;margin:0 auto 7px;border-radius:15px;background:#ffffffdb;color:#27232a;font-size:29px}
-#dock{position:absolute;bottom:20px;left:15px;right:15px;display:flex;justify-content:space-around;align-items:center;padding:12px 0;border-radius:25px;background:#ffffff4a;backdrop-filter:blur(25px)}
-#dock button{border:0;background:none;font-size:27px}
-#appview{display:none;position:absolute;inset:0;background:#f7f6fa;color:#222;padding:55px 20px 25px;overflow:auto}
-#appbar{display:flex;align-items:center;gap:12px;margin-bottom:24px}
-#appbar button{border:0;background:#e9e3ee;border-radius:12px;padding:10px}
-#apptitle{font-size:23px;font-weight:700}
-.contact{display:flex;align-items:center;gap:12px;padding:15px 0;border-bottom:1px solid #e5e1e8}
-.avatar{width:45px;height:45px;border-radius:50%;background:#e3d4ef;display:grid;place-items:center;font-size:23px}
-.muted{font-size:12px;color:#777;margin-top:5px}
-.bubble{width:fit-content;max-width:85%;padding:11px 14px;margin:10px 0;background:#e8e4eb;border-radius:18px;overflow-wrap:anywhere}
-.bubble.me{margin-left:auto;background:#b8a0ed;color:#17151b}
-#chatinput{display:flex;gap:8px;margin-top:20px}
-#chatinput input{width:70%;min-width:0;border:1px solid #ddd;border-radius:20px;padding:12px}
-#chatinput button,.action{border:0;border-radius:18px;padding:12px;background:#9476bd;color:white}
-.post{padding:15px;margin:15px 0;border:1px solid #e5e1e8;border-radius:18px}
-.photo{height:180px;display:grid;place-items:center;background:linear-gradient(135deg,#e7d8ee,#c8c6ed);font-size:55px;border-radius:12px;margin:12px 0}
-#homebar{position:absolute;bottom:8px;left:35%;width:30%;height:5px;background:white;border-radius:5px}
-#appbarline{position:sticky;bottom:-15px;margin:35px auto 0;width:100px;height:5px;background:#aaa;border-radius:5px}
-
-/* Animaciones estilo iPhone */
-#lock, #pass, #home, #appview {
-  transition: opacity 0.35s ease, transform 0.35s ease;
+.plain{border:0;background:none;color:white;font-size:14px}
+#home{
+  display:none;padding:57px 20px 100px;
+  animation:homein .35s ease both;
 }
-
-button {
-  -webkit-tap-highlight-color: transparent;
-  cursor: pointer;
+@keyframes homein{from{opacity:.2;transform:scale(1.03)}to{opacity:1;transform:scale(1)}}
+#homeheader{display:flex;align-items:center;justify-content:space-between}
+#homeheader h1{font-size:27px;font-weight:650;margin:12px 0 5px;text-shadow:0 1px 5px #333}
+#profile{width:39px;height:39px;border-radius:50%;background:#ffffff50;border:1px solid #ffffff70;display:grid;place-items:center}
+#widget{
+  background:#ffffff38;border:1px solid #ffffff40;border-radius:22px;
+  padding:13px;margin:13px 0 27px;backdrop-filter:blur(20px);
 }
-
-.app span {
-  transition: transform 0.15s ease;
+#widget .big{font-size:26px;font-weight:600}
+#widget p{font-size:12px;margin:4px 0 0}
+#apps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px 8px}
+.app{background:none;border:0;color:white;min-width:0;font-size:11px;text-shadow:0 1px 4px #222}
+.appicon{
+  position:relative;width:57px;height:57px;margin:0 auto 7px;
+  border-radius:15px;display:grid;place-items:center;font-size:28px;
+  box-shadow:0 3px 8px #0002;transition:transform .15s;
 }
-
-.app:active span {
-  transform: scale(0.88);
+.app:active .appicon{transform:scale(.86)}
+.appname{white-space:nowrap}
+.redbadge{
+  position:absolute;right:-6px;top:-7px;min-width:19px;height:19px;
+  padding:0 5px;border-radius:12px;background:#ff3b30;color:white;
+  font-size:11px;font-weight:700;display:grid;place-items:center;
+  border:1px solid #ffffff55;text-shadow:none;
 }
-
+#dock{
+  position:absolute;bottom:19px;left:13px;right:13px;
+  display:flex;justify-content:space-evenly;align-items:center;
+  border:1px solid #ffffff35;border-radius:27px;
+  background:#ffffff40;backdrop-filter:blur(30px);
+  padding:12px 4px;
+}
+.dockapp{position:relative;border:0;background:none;padding:0}
+.dockapp .appicon{width:52px;height:52px;margin:0;font-size:26px}
+#homebar{
+  position:absolute;bottom:7px;left:35%;width:30%;height:5px;
+  border-radius:5px;background:white;
+}
+#appview{
+  display:none;position:absolute;inset:0;z-index:5;background:#f7f7fa;color:#18181c;
+  overflow-y:auto;padding:57px 18px 30px;animation:homein .22s ease;
+}
+#appheader{display:flex;align-items:center;gap:13px;margin-bottom:22px}
+#back{border:0;background:none;color:#3688fa;font-size:18px;padding:5px}
+#apptitle{font-size:24px;font-weight:750;flex:1}
+#appbody{padding-bottom:22px}
+.muted{color:#777;font-size:12px}
+.sectionlabel{font-size:12px;color:#777;font-weight:650;margin:16px 0 8px}
+.tweet{padding:14px 0;border-bottom:1px solid #e4e4e8}
+.tweethead{display:flex;gap:10px;align-items:center}
+.tweetavatar{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:#ded3ec;font-size:20px;flex-shrink:0}
+.tweetname{font-size:14px;font-weight:700}
+.tweetuser{font-size:12px;color:#777;margin-top:3px}
+.tweet p{font-size:14px;line-height:1.45;white-space:pre-wrap;overflow-wrap:anywhere}
+.tweetstats{display:flex;justify-content:space-between;gap:8px;color:#777;font-size:11px;margin-top:14px}
+.tweetstats button{border:0;background:none;color:inherit;padding:0}
+.tweetstats button.liked{color:#e74980}
+.contact{
+  display:flex;align-items:center;gap:12px;padding:14px 0;
+  border-bottom:1px solid #e7e7ec;cursor:pointer;
+}
+.avatar{width:47px;height:47px;flex-shrink:0;border-radius:50%;display:grid;place-items:center;background:#e2d9ef;font-size:22px}
+.contactmain{min-width:0;flex:1}
+.contacttop{display:flex;justify-content:space-between;gap:5px}
+.contacttop b{font-size:14px}
+.contacttop small{font-size:11px;color:#888}
+.preview{font-size:12px;color:#777;margin-top:5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bubble{padding:11px 14px;margin:9px 0;max-width:84%;width:fit-content;border-radius:19px;background:#e9e9ee;font-size:14px;line-height:1.4;overflow-wrap:anywhere;white-space:pre-wrap}
+.bubble.me{margin-left:auto;background:#1685f8;color:white}
+.bubbletime{text-align:center;color:#888;font-size:11px;margin:15px 0}
+#chatinput{display:flex;gap:7px;margin-top:18px;position:sticky;bottom:0;background:#f7f7fa;padding:8px 0}
+#chatinput input{flex:1;min-width:0;border:1px solid #d5d5dd;border-radius:22px;padding:12px;background:white;color:#222}
+#chatinput button{border:0;border-radius:50%;width:42px;height:42px;background:#1685f8;color:white;font-size:19px}
+.post{padding:14px 0;border-bottom:1px solid #ddd}
+.postphoto{height:165px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,#d7c5e7,#a8b4d4);font-size:46px;margin:12px 0}
+.action{border:0;background:#eee9f5;color:#5f3e9c;padding:10px 14px;border-radius:20px}
+#settings input{width:100%;padding:12px;border:1px solid #ddd;border-radius:12px}
+#settings button{padding:12px;border:0;border-radius:12px;background:#1685f8;color:white}
+#toast{
+  display:none;position:absolute;z-index:12;top:47px;left:12px;right:12px;
+  padding:12px;border-radius:17px;background:#f4f3f6ed;color:#222;
+  box-shadow:0 4px 20px #0002;backdrop-filter:blur(25px);
+  animation:arrive .35s ease;
+}
+#toast b{font-size:13px}
+#toast p{font-size:12px;margin:5px 0 0}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
 <div id="phone">
- <section id="lock" class="wall">
-  <div id="date">MARTES, 20 DE OCTUBRE</div>
-  <div id="clock">9:41</div>
-  <div id="hint">iPhone de Armando</div>
-  <div id="notifications">
-   <div class="notice"><small>MENSAJES · AHORA</small><b>Brian</b><br>¿Podemos hablar?</div>
-   <div class="notice"><small>MENSAJES · AHORA</small><b>Mati</b><br>ARMANDO PQ CITABAS ESO?</div>
-   <div class="notice"><small>X · 2 min</small><b>Una nueva notificación</b><br>Alguien comentó tu publicación.</div>
+ <div id="lockwall" class="wall"></div>
+ <div id="homewall" class="wall" style="display:none"></div>
+
+ <div id="status">
+  <span id="statusTime">9:41</span>
+  <span>▂ ▄ ▆　◉　▰</span>
+ </div>
+
+ <section id="lock">
+  <div id="lockhead">
+   <div id="date">MARTES, 20 DE OCTUBRE</div>
+   <div id="clock">9:41</div>
+   <div id="lockextras"><span>☁ 21°</span><span>Armando's iPhone</span></div>
   </div>
-  <button onclick="showPass()" style="position:absolute;bottom:35px;left:25%;width:50%;padding:13px;border:1px solid #ffffff88;border-radius:25px;background:#ffffff44;color:white">Desbloquear ↑</button>
+  <div id="notifications"></div>
+  <div id="lockbottom">
+   <button class="lockcircle" aria-label="Linterna" onclick="toast('Linterna','Esta función es decorativa.')">ϟ</button>
+   <button id="lockhint" onclick="showPass()">Desliza hacia arriba ↑</button>
+   <button class="lockcircle" aria-label="Cámara" onclick="toast('Cámara','La cámara es parte de esta simulación.')">◎</button>
+  </div>
  </section>
 
  <section id="pass">
+  <div style="font-size:43px;margin-top:12px">🔒</div>
   <h2>Introduce el código</h2>
   <p>iPhone de Armando</p>
-  <div id="dots">
-   <i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i>
-  </div>
-  <div id="message">Introduce el código de 4 dígitos</div>
+  <div id="dots"><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></div>
+  <div id="passerror">Introduce el código de 4 dígitos</div>
   <div id="keypad">
    <button class="key" onclick="digit('1')">1</button>
    <button class="key" onclick="digit('2')">2<small>ABC</small></button>
@@ -126,111 +250,311 @@ button {
    <button class="key" onclick="digit('9')">9<small>WXYZ</small></button>
    <button class="key" style="visibility:hidden"></button>
    <button class="key" onclick="digit('0')">0</button>
-   <button class="key" onclick="erase()" style="font-size:14px">Borrar</button>
+   <button class="key" onclick="erase()" style="font-size:13px">Borrar</button>
   </div>
-  <button onclick="hidePass()" style="border:0;background:none;color:white">Cancelar</button>
+  <button class="plain" onclick="hidePass()">Cancelar</button>
  </section>
 
- <section id="home" class="wall">
-  <h2>Armando</h2>
-  <p>Martes</p>
+ <section id="home">
+  <div id="homeheader">
+   <div><h1>Armando ♡</h1><div style="font-size:12px;text-shadow:0 1px 4px #333">Tu martes, de un vistazo.</div></div>
+   <div id="profile">A</div>
+  </div>
+  <div id="widget">
+   <div style="font-size:12px">MARTES · OCTUBRE 20</div>
+   <div class="big" id="homeclock">9:41</div>
+   <p>Hay días que empiezan normales y terminan siendo un desastre.</p>
+  </div>
   <div id="apps">
-   <button class="app" onclick="openApp('messages')"><span>💬</span>Mensajes</button>
-   <button class="app" onclick="openApp('phone')"><span>📞</span>Teléfono</button>
-   <button class="app" onclick="openApp('social')"><span>📸</span>Instagram</button>
-   <button class="app" onclick="openApp('photos')"><span>🌄</span>Fotos</button>
-   <button class="app" onclick="openApp('social')"><span>✖️</span>X</button>
-   <button class="app" onclick="openApp('notes')"><span>📝</span>Notas</button>
-   <button class="app" onclick="openApp('settings')"><span>⚙️</span>Ajustes</button>
+   <button class="app" onclick="openApp('x')"><div class="appicon" style="background:#171719">𝕏<span id="xbadge" class="redbadge">99+</span></div><div class="appname">X</div></button>
+   <button class="app" onclick="openApp('messages')"><div class="appicon" style="background:#58ce72">💬<span id="mbadge" class="redbadge">8</span></div><div class="appname">Mensajes</div></button>
+   <button class="app" onclick="openApp('phone')"><div class="appicon" style="background:#4bc46a">📞<span id="cbadge" class="redbadge">3</span></div><div class="appname">Teléfono</div></button>
+   <button class="app" onclick="openApp('photos')"><div class="appicon" style="background:linear-gradient(135deg,#f8cf72,#f078ac,#7e8cf2)">🌈</div><div class="appname">Fotos</div></button>
+   <button class="app" onclick="openApp('instagram')"><div class="appicon" style="background:linear-gradient(135deg,#7657d7,#f04e91,#f7a64a)">◎</div><div class="appname">Instagram</div></button>
+   <button class="app" onclick="openApp('spotify')"><div class="appicon" style="background:#171719;color:#4bdf85">●</div><div class="appname">Spotify</div></button>
+   <button class="app" onclick="openApp('notes')"><div class="appicon" style="background:#f7df68;color:#292929">📝</div><div class="appname">Notas</div></button>
+   <button class="app" onclick="openApp('settings')"><div class="appicon" style="background:#aeb3bc;color:#fff">⚙</div><div class="appname">Ajustes</div></button>
   </div>
   <div id="dock">
-   <button onclick="openApp('phone')">📞</button>
-   <button onclick="openApp('messages')">💬</button>
-   <button onclick="openApp('social')">📸</button>
-   <button onclick="openApp('photos')">🌄</button>
+   <button class="dockapp" onclick="openApp('phone')"><div class="appicon" style="background:#4bc46a">📞</div></button>
+   <button class="dockapp" onclick="openApp('safari')"><div class="appicon" style="background:#f8f8fc">🧭</div></button>
+   <button class="dockapp" onclick="openApp('music')"><div class="appicon" style="background:#f65b67">♫</div></button>
+   <button class="dockapp" onclick="openApp('messages')"><div class="appicon" style="background:#58ce72">💬</div></button>
   </div>
   <div id="homebar"></div>
  </section>
 
  <section id="appview">
-  <div id="appbar"><button onclick="goHome()">‹ Inicio</button><div id="apptitle"></div></div>
-  <div id="appbody"></div><div id="appbarline"></div>
+  <div id="appheader"><button id="back" onclick="goHome()">‹ Inicio</button><div id="apptitle">X</div></div>
+  <div id="appbody"></div>
  </section>
+
+ <div id="toast"><b id="toasttitle"></b><p id="toastbody"></p></div>
 </div>
 
 <script>
-const PASSCODE="2004"; // 
-let entered="";
+const PASSCODE="2004";
+let entered="",unlocked=false,activeApp="",activeChat="";
+let storyTimers=[],storyStarted=false,toastTimer=null;
+const $=id=>document.getElementById(id);
+
+const events=[
+ {delay:1200,type:"x",title:"X",headline:"@viralau · hace un momento",text:"¿ARMANDO CITANDO UN EDIT DE BRIAN Y MATEO DESDE SU CUENTA PÚBLICA? 😭😭",icon:"𝕏",cls:"xicon"},
+ {delay:3300,type:"x",title:"X",headline:"A alguien le gustó tu publicación",text:"Tu cita recibió 1,284 Me gusta. La gente está empezando a compartirla.",icon:"𝕏",cls:"xicon"},
+ {delay:5200,type:"mateo",title:"Mateo",headline:"iMessage · ahora",text:"JAJAJAJAJA ARMANDO ¿QUÉ ES LO QUE ANDAS VIENDO?",icon:"M",cls:"msgicon"},
+ {delay:7200,type:"x",title:"X",headline:"Tu publicación se está difundiendo",text:"3,912 reposts y contando. Tu nombre está apareciendo por todas partes.",icon:"𝕏",cls:"xicon"},
+ {delay:9400,type:"brian",title:"Brian",headline:"Llamada perdida",text:"Brian intentó llamarte. Toca para ver las llamadas recientes.",icon:"☎",cls:"callicon"},
+ {delay:11200,type:"brian",title:"Brian",headline:"iMessage · ahora",text:"Armando. ¿Qué pasó? Acabo de ver tu cuenta.",icon:"B",cls:"msgicon"},
+ {delay:13100,type:"x",title:"X",headline:"@briam_edits te mencionó",text:"NO PUEDE SER, ¿VISTE LO QUE PUBLICÓ ARMANDO? 💀",icon:"𝕏",cls:"xicon"},
+ {delay:14900,type:"mateo",title:"Mateo",headline:"iMessage · ahora",text:"No sabía que te interesaban TANTO esos edits conmigo y Brian JAJAJA",icon:"M",cls:"msgicon"},
+ {delay:16800,type:"x",title:"X",headline:"¡Tu publicación es viral!",text:"8,506 Me gusta · 5,204 reposts · 1,908 respuestas",icon:"𝕏",cls:"xicon"},
+ {delay:18700,type:"brian",title:"Brian",headline:"Llamada perdida",text:"Brian intentó llamarte por segunda vez.",icon:"☎",cls:"callicon"},
+ {delay:20600,type:"brian",title:"Brian",headline:"iMessage · ahora",text:"Por favor, contéstame. Tenemos que hablar antes de que alguien se dé cuenta.",icon:"B",cls:"msgicon"},
+ {delay:22500,type:"x",title:"X",headline:"@fandomcentral publicó una respuesta",text:"EL NOVIO DE BRIAN ACABA DE EXPONERSE SOLITO 😭😭",icon:"𝕏",cls:"xicon"},
+ {delay:24500,type:"mateo",title:"Mateo",headline:"iMessage · ahora",text:"Espera. ¿Brian ya te escribió? Porque acaba de preguntarme por qué estoy en tus menciones.",icon:"M",cls:"msgicon"},
+ {delay:26500,type:"x",title:"X",headline:"Tu publicación recibió más interacciones",text:"12,804 Me gusta · 9,201 reposts · 3,410 respuestas",icon:"𝕏",cls:"xicon"},
+ {delay:28600,type:"brian",title:"Brian",headline:"Llamada perdida",text:"Brian intentó llamarte por tercera vez.",icon:"☎",cls:"callicon"},
+ {delay:30700,type:"brian",title:"Brian",headline:"iMessage · ahora",text:"Amor, por favor. No respondas a nadie todavía. ¿Podemos hablar?",icon:"B",cls:"msgicon"}
+];
+
 let chats={
- Brian:[["them","¿Podemos hablar?"],["me","te juro que se me fue el dedo"],["them","citaste esa cosa, wey"]],
- Mateo:[["them","ARMANDO PQ CITABAS ESO?"],["me","ME EQUIVOQUÉ DE CUENTA 😭"]],
+ Brian:[
+  ["them","Armando, ¿qué es eso que citaste?"],
+  ["them","Acabo de abrir X y está lleno de tu nombre."],
+  ["me","No me di cuenta de que estaba en mi cuenta pública."],
+  ["them","¿Cómo que no te diste cuenta? 😭"],
+  ["them","Me han etiquetado como veinte veces."],
+  ["them","Por favor, dime que nadie sabe lo nuestro."],
+  ["me","No saben nada, tranquilo."],
+  ["them","Amor, hay gente haciendo teorías sobre ti y sobre mí."],
+  ["them","Contéstame las llamadas, por favor."],
+  ["them","No quiero que te enteres por otra persona, pero tenemos que hablar."]
+ ],
+ Mateo:[
+  ["them","JAJAJAJAJA ARMANDO ¿QUÉ ES LO QUE ANDAS VIENDO?"],
+  ["me","CÁLLATE."],
+  ["them","¿Tú citaste ESA cuenta desde tu perfil público?"],
+  ["me","FUE SIN QUERER 😭"],
+  ["them","Hermano, ya tienes miles de reposts."],
+  ["them","Además, ¿por qué te molesta tanto que hagan edits de Brian conmigo?"],
+  ["me","NO ME MOLESTA."],
+  ["them","Claro, por eso escribiste un párrafo entero JAJAJA."],
+  ["them","Oye, fuera de broma, Brian me preguntó qué estaba pasando."],
+  ["them","¿Todo bien entre ustedes?"]
+ ],
+ Mamá:[
+  ["them","Avísame cuando llegues a casa ❤️"]
+ ]
 };
-function showPass(){
- document.getElementById("pass").style.display="block";
- document.getElementById("message").textContent="Introduce el código de 4 dígitos";
+
+let tweets=[
+ {name:"Armando",user:"@armando",avatar:"A",text:"¿¿¿QUIÉN VE ESTAS COSAS Y PIENSA QUE TIENEN SENTIDO??? qué asco JAJAJA",time:"hace 12 min",likes:"12.8 mil",reposts:"9,201",replies:"3,410"},
+ {name:"fandom central",user:"@fandomcentral",avatar:"♡",text:"ARMANDO CITÓ UN EDIT DE BRIAN Y MATEO DESDE SU CUENTA PÚBLICA Y AHORA ESTÁ INTENTANDO EXPLICARSE 😭",time:"hace 8 min",likes:"18.2 mil",reposts:"7,804",replies:"2,110"},
+ {name:"briam edits",user:"@briam_edits",avatar:"✦",text:"no quiero sacar conclusiones pero ¿por qué armando está tan pendiente de brian? 👀",time:"hace 6 min",likes:"5,409",reposts:"1,287",replies:"804"},
+ {name:"Mateo",user:"@mateo",avatar:"M",text:"la gente debería aprender a usar su cuenta privada primero 😭",time:"hace 4 min",likes:"8,204",reposts:"2,331",replies:"912"},
+ {name:"usuario desconocido",user:"@randomuser",avatar:"?",text:"¿SOY YO O ARMANDO ACABA DE HACER EL FANDOM MÁS GRANDE?",time:"hace 2 min",likes:"2,804",reposts:"1,021",replies:"301"}
+];
+
+function updateClock(){
+ const d=new Date();
+ $("statusTime").textContent=d.toLocaleTimeString("es-MX",{hour:"2-digit",minute:"2-digit",hour12:false});
+ $("homeclock").textContent=d.toLocaleTimeString("es-MX",{hour:"2-digit",minute:"2-digit",hour12:false});
 }
-function hidePass(){document.getElementById("pass").style.display="none";entered="";updateDots()}
-function updateDots(){
- document.querySelectorAll(".dot").forEach((d,i)=>d.classList.toggle("filled",i<entered.length));
+function setDate(){
+ const d=new Date();
+ $("date").textContent=d.toLocaleDateString("es-MX",{weekday:"long",day:"numeric",month:"long"}).toUpperCase();
 }
+updateClock();setDate();setInterval(updateClock,15000);
+
+function showPass(){if(unlocked)return;$("pass").style.display="block";$("passerror").textContent="Introduce el código de 4 dígitos";}
+function hidePass(){if(unlocked)return;$("pass").style.display="none";entered="";updateDots();}
+function updateDots(){$$("dot").forEach((d,i)=>d.classList.toggle("filled",i<entered.length));}
+function $$(cls){return document.querySelectorAll("."+cls)}
 function digit(n){
  if(entered.length>=4)return;
  entered+=n;updateDots();
  if(entered.length===4){
   if(entered===PASSCODE){
-   document.getElementById("lock").style.display="none";
-   document.getElementById("pass").style.display="none";
-   document.getElementById("home").style.display="block";
+   unlocked=true;
+   $("pass").style.display="none";
+   $("lock").style.display="none";
+   $("lockwall").style.display="none";
+   $("homewall").style.display="block";
+   $("home").style.display="block";
+   if(!storyStarted)startStory();
   }else{
-   document.getElementById("message").textContent="Código incorrecto. Intenta otra vez.";
-   setTimeout(()=>{entered="";updateDots()},650);
+   $("passerror").textContent="Código incorrecto";
+   setTimeout(()=>{entered="";updateDots();$("passerror").textContent="Inténtalo otra vez";},650);
   }
  }
 }
-function erase(){entered=entered.slice(0,-1);updateDots()}
+function erase(){entered=entered.slice(0,-1);updateDots();}
 function goHome(){
- document.getElementById("appview").style.display="none";
- document.getElementById("home").style.display="block";
+ $("appview").style.display="none";
+ $("home").style.display="block";
+ activeApp="";
 }
-function openApp(app){
- document.getElementById("home").style.display="none";
- document.getElementById("appview").style.display="block";
- const title=document.getElementById("apptitle");
- const body=document.getElementById("appbody");
- title.textContent=({messages:"Mensajes",phone:"Teléfono",social:"Instagram",photos:"Fotos",notes:"Notas",settings:"Ajustes"})[app];
- if(app==="messages")renderContacts();
- if(app==="phone")body.innerHTML='<h3>Recientes</h3><div class="contact">📞 Brian · Llamada perdida</div><div class="contact">📞 Sam · Ayer</div><p class="muted">Llamadas simuladas.</p>';
- if(app==="social")body.innerHTML='<h3>Para ti</h3><article class="post"><b>@armando</b><div class="photo">🌆</div><p>Una noche para recordar.</p><button class="action" onclick="like(this)">♡ Me gusta</button></article><article class="post"><b>@brian</b><div class="photo">🪻</div><p>Últimamente ♡</p><button class="action" onclick="like(this)">♡ Me gusta</button></article>';
- if(app==="photos")body.innerHTML='<h3>Recuerdos</h3><div class="photo">🌄</div><p>Tu galería ficticia.</p>';
- if(app==="notes")body.innerHTML='<h3>Notas</h3><textarea placeholder="Escribe un secreto..." style="width:100%;height:180px;border:1px solid #ddd;border-radius:12px;padding:12px"></textarea><p class="muted">Las notas son temporales.</p>';
- if(app==="settings")body.innerHTML='<h3>Ajustes</h3><p>iPhone de Armando ♡</p><p class="muted">Código ficticio: puedes cambiar PASSCODE en el código fuente.</p><p>Fondo: armando.jpg</p>';
-}
-function renderContacts(){
- const body=document.getElementById("appbody");
- body.innerHTML="<p class='muted'>Conversaciones</p>";
- Object.keys(chats).forEach(name=>{
-  const el=document.createElement("div");el.className="contact";
-  el.innerHTML='<div class="avatar">♡</div><div><b></b><div class="muted"></div></div>';
-  el.querySelector("b").textContent=name;
-  el.querySelector(".muted").textContent=chats[name].at(-1)[1];
-  el.onclick=()=>openChat(name);body.appendChild(el);
+function startStory(){
+ if(storyStarted)return;
+ storyStarted=true;
+ events.forEach(ev=>{
+  storyTimers.push(setTimeout(()=>addNotification(ev),ev.delay));
  });
 }
-function openChat(name){
- document.getElementById("apptitle").textContent=name;
- const body=document.getElementById("appbody");
- body.innerHTML='<div id="chatlist"></div><form id="chatinput"><input id="msg" placeholder="iMessage" autocomplete="off"><button>➤</button></form><p class="muted">Conversación ficticia.</p>';
- const list=document.getElementById("chatlist");
- chats[name].forEach(m=>addBubble(list,m[0],m[1]));
- document.getElementById("chatinput").onsubmit=e=>{
-  e.preventDefault();const input=document.getElementById("msg");const val=input.value.trim();
-  if(!val)return;chats[name].push(["me",val]);addBubble(list,"me",val);input.value="";
+function addNotification(ev){
+ const n=document.createElement("button");
+ n.className="notice";
+ n.innerHTML='<div class="nicon '+ev.cls+'"></div><div class="ncontent"><div class="nrow"><b></b><span>ahora</span></div><strong></strong><p></p></div>';
+ n.querySelector(".nicon").textContent=ev.icon;
+ n.querySelector(".nrow b").textContent=ev.title;
+ n.querySelector("strong").textContent=ev.headline;
+ n.querySelector(".ncontent p").textContent=ev.text;
+ n.onclick=()=>{
+  if(!unlocked){showPass();return;}
+  openApp(ev.type==="x"?"x":ev.type==="brian"?"messages":ev.type==="mateo"?"messages":"x");
+  if(ev.type==="brian")openChat("Brian");
+  if(ev.type==="mateo")openChat("Mateo");
  };
+ $("notifications").prepend(n);
+ while($("notifications").children.length>6)$("notifications").lastElementChild.remove();
+ if(!unlocked){
+  // Las notificaciones se acumulan en la pantalla bloqueada.
+ }
 }
-function addBubble(list,who,msg){
- const b=document.createElement("div");b.className="bubble "+(who==="me"?"me":"");b.textContent=msg;list.appendChild(b);
+function toast(title,text){
+ $("toasttitle").textContent=title;$("toastbody").textContent=text;
+ $("toast").style.display="block";clearTimeout(toastTimer);
+ toastTimer=setTimeout(()=>$("toast").style.display="none",2500);
 }
-function like(button){button.textContent=button.textContent.includes("Me gusta")?"♥ Te gusta":"♡ Me gusta"}
+function openApp(app){
+ activeApp=app;activeChat="";
+ $("home").style.display="none";$("appview").style.display="block";
+ $("appbody").innerHTML="";
+ const titles={x:"X",messages:"Mensajes",phone:"Teléfono",photos:"Fotos",instagram:"Instagram",spotify:"Spotify",notes:"Notas",settings:"Ajustes",safari:"Safari",music:"Música"};
+ $("apptitle").textContent=titles[app]||app;
+ if(app==="x")renderX();
+ if(app==="messages")renderContacts();
+ if(app==="phone")renderPhone();
+ if(app==="photos")$("appbody").innerHTML="<h3>Fotos</h3><p>Recuerdos de Armando</p><div class='postphoto'>🌆</div><div class='postphoto'>🪻</div>";
+ if(app==="instagram")$("appbody").innerHTML="<h3>Instagram</h3><div class='post'><b>@armando</b><div class='postphoto'>🌃</div><p>una noche normal... supuestamente.</p>♡ 2,304 Me gusta</div>";
+ if(app==="spotify")$("appbody").innerHTML="<h3>Escuchado recientemente</h3><div class='contact'><div class='avatar'>♫</div><div><b>Playlist de Armando</b><div class='muted'>No me hablen por favor</div></div></div>";
+ if(app==="music")$("appbody").innerHTML="<h3>Música</h3><div class='postphoto'>♫</div><p>Ahora suena: canciones para ignorar el caos.</p>";
+ if(app==="safari")$("appbody").innerHTML="<h3>Safari</h3><p>Tu historial de navegación ficticio.</p><div class='contact'>🔎　edits brian mateo</div><div class='contact'>🔎　cómo borrar un post viral</div>";
+ if(app==="notes")$("appbody").innerHTML="<h3>Nota sin título</h3><textarea style='width:100%;height:200px;border:1px solid #ddd;border-radius:12px;padding:12px' placeholder='No debí publicar eso...'></textarea><p class='muted'>Nota ficticia, no se guarda al recargar.</p>";
+ if(app==="settings")renderSettings();
+}
+function renderX(){
+ const body=$("appbody");
+ body.innerHTML="<div style='display:flex;justify-content:space-between;align-items:center'><h3>Para ti</h3><span>𝕏</span></div><div class='sectionlabel'>TU PUBLICACIÓN VIRAL</div>";
+ tweets.forEach((t,i)=>{
+  const el=document.createElement("article");el.className="tweet";
+  const head=document.createElement("div");head.className="tweethead";
+  const avatar=document.createElement("div");avatar.className="tweetavatar";avatar.textContent=t.avatar;
+  const info=document.createElement("div");info.innerHTML="<div class='tweetname'></div><div class='tweetuser'></div>";
+  info.children[0].textContent=t.name;info.children[1].textContent=t.user+" · "+t.time;
+  head.append(avatar,info);el.appendChild(head);
+  const p=document.createElement("p");p.textContent=t.text;el.appendChild(p);
+  const stats=document.createElement("div");stats.className="tweetstats";
+  [["♡",t.replies],["⇄",t.reposts],["♥",t.likes],["↗","Compartir"]].forEach((a,j)=>{
+   const b=document.createElement("button");b.textContent=a[0]+" "+a[1];
+   if(j===2)b.onclick=()=>{b.classList.toggle("liked");b.textContent=b.classList.contains("liked")?"♥ Te gusta":"♥ "+a[1];};
+   else if(j===0)b.onclick=()=>toast("Respuestas","Las respuestas son parte de esta historia ficticia.");
+   else if(j===1)b.onclick=()=>toast("Repost","Repost ficticio.");
+   else b.onclick=()=>toast("Compartir","Publicación ficticia.");
+   stats.appendChild(b);
+  });
+  el.appendChild(stats);body.appendChild(el);
+ });
+ const note=document.createElement("p");note.className="muted";note.textContent="Historia ficticia · Interacciones simuladas.";body.appendChild(note);
+}
+function renderContacts(){
+ const body=$("appbody");body.innerHTML="<div class='sectionlabel'>FIJADOS</div>";
+ ["Brian","Mateo","Mamá"].forEach(name=>{
+  const last=chats[name][chats[name].length-1][1];
+  const el=document.createElement("div");el.className="contact";
+  const av=document.createElement("div");av.className="avatar";av.textContent=name==="Brian"?"B":name==="Mateo"?"M":"♡";
+  const main=document.createElement("div");main.className="contactmain";
+  const top=document.createElement("div");top.className="contacttop";
+  const b=document.createElement("b");b.textContent=name;
+  const time=document.createElement("small");time.textContent=name==="Brian"?"ahora":"hace 1 min";
+  top.append(b,time);
+  const preview=document.createElement("div");preview.className="preview";preview.textContent=last;
+  main.append(top,preview);el.append(av,main);el.onclick=()=>openChat(name);body.appendChild(el);
+ });
+ const tip=document.createElement("p");tip.className="muted";tip.textContent="Conversaciones ficticias · No se envían mensajes reales.";body.appendChild(tip);
+}
+function openChat(name){
+ activeChat=name;$("apptitle").textContent=name;
+ const body=$("appbody");body.innerHTML="";
+ const list=document.createElement("div");
+ chats[name].forEach(m=>{
+  const b=document.createElement("div");b.className="bubble "+(m[0]==="me"?"me":"");b.textContent=m[1];list.appendChild(b);
+ });
+ body.appendChild(list);
+ const time=document.createElement("div");time.className="bubbletime";time.textContent="iMessage · hoy";body.appendChild(time);
+ const form=document.createElement("form");form.id="chatinput";
+ const input=document.createElement("input");input.placeholder="iMessage";input.autocomplete="off";
+ const send=document.createElement("button");send.type="submit";send.textContent="↑";
+ form.append(input,send);body.appendChild(form);
+ form.onsubmit=e=>{
+  e.preventDefault();const val=input.value.trim();if(!val)return;
+  chats[name].push(["me",val]);
+  const b=document.createElement("div");b.className="bubble me";b.textContent=val;list.appendChild(b);
+  input.value="";body.scrollTop=body.scrollHeight;
+ };
+ body.scrollTop=body.scrollHeight;
+}
+function renderPhone(){
+ const body=$("appbody");
+ body.innerHTML="<h3>Recientes</h3>";
+ [
+  ["Brian","Llamada perdida · ahora"],
+  ["Brian","Llamada perdida · hace 2 min"],
+  ["Brian","Llamada perdida · hace 5 min"],
+  ["Mateo","Llamada saliente · ayer"]
+ ].forEach(item=>{
+  const el=document.createElement("div");el.className="contact";
+  el.innerHTML="<div class='avatar' style='background:#e8e8ef'>☎</div><div class='contactmain'><div class='contacttop'><b></b></div><div class='preview'></div></div>";
+  el.querySelector("b").textContent=item[0];el.querySelector(".preview").textContent=item[1];
+  body.appendChild(el);
+ });
+ const note=document.createElement("p");note.className="muted";note.textContent="Llamadas simuladas. No se realizan llamadas reales.";body.appendChild(note);
+}
+function renderSettings(){
+ const body=$("appbody");body.id="appbody";
+ body.innerHTML="<div id='settings'><h3>Armando's iPhone</h3><p>Personalización del AU</p><label>Nombre de la pantalla</label><input id='rename' value='Armando ♡'><br><br><button onclick='changeName()'>Cambiar nombre</button><p class='muted'>Fondos: lockscreen.jpg y homewallpaper.jpg</p><p class='muted'>La clave de esta historia es 2004. No es seguridad real.</p><button onclick='replayStory()'>Reiniciar llegada de notificaciones</button></div>";
+}
+function changeName(){
+ const val=$("rename").value.trim();
+ if(val){$("homeheader").querySelector("h1").textContent=val;toast("Ajustes","Nombre actualizado.");}
+}
+function replayStory(){
+ storyTimers.forEach(clearTimeout);storyTimers=[];storyStarted=false;
+ $("notifications").innerHTML="";startStory();toast("Historia","Las notificaciones volverán a llegar.");
+}
+
+// Gesto de deslizar hacia arriba en la pantalla bloqueada.
+let touchY=null;
+$("lock").addEventListener("touchstart",e=>{touchY=e.touches[0].clientY;},{passive:true});
+$("lock").addEventListener("touchend",e=>{
+ if(touchY!==null && touchY-e.changedTouches[0].clientY>45)showPass();
+ touchY=null;
+},{passive:true});
+$("lock").addEventListener("click",e=>{
+ if(e.target.id==="lock"||e.target.id==="lockwall"||e.target.id==="lockhead")showPass();
+});
+$("phone").addEventListener("touchstart",e=>{
+ if(unlocked&&e.touches[0].clientY>window.innerHeight-35)window._homeGesture=e.touches[0].clientY;
+},{passive:true});
+$("phone").addEventListener("touchend",e=>{
+ if(unlocked&&window._homeGesture&&window._homeGesture-e.changedTouches[0].clientY>30){
+  if($("appview").style.display==="block")goHome();
+ }
+ window._homeGesture=null;
+},{passive:true});
+
+// Simula notificaciones aunque el usuario tarde en desbloquear.
+startStory();
 </script>
 </body>
 </html>
