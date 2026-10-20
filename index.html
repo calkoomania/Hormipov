@@ -62,10 +62,11 @@ body{margin:0;background:#17151b;display:grid;place-items:center;min-height:100d
  <section id="lock" class="wall">
   <div id="date">MARTES, 20 DE OCTUBRE</div>
   <div id="clock">9:41</div>
-  <div id="hint">♡ El iPhone de Armando ♡</div>
+  <div id="hint">iPhone de Armando</div>
   <div id="notifications">
-   <div class="notice"><small>MENSAJES · AHORA</small><b>Brian</b><br>¿Ya llegaste a casa?</div>
-   <div class="notice"><small>INSTAGRAM · 2 min</small><b>Una nueva notificación</b><br>Alguien comentó tu publicación.</div>
+   <div class="notice"><small>MENSAJES · AHORA</small><b>Brian</b><br>¿Podemos hablar?</div>
+   <div class="notice"><small>MENSAJES · AHORA</small><b>Mati</b><br>ARMANDO PQ CITABAS ESO?</div>
+   <div class="notice"><small>X · 2 min</small><b>Una nueva notificación</b><br>Alguien comentó tu publicación.</div>
   </div>
   <button onclick="showPass()" style="position:absolute;bottom:35px;left:25%;width:50%;padding:13px;border:1px solid #ffffff88;border-radius:25px;background:#ffffff44;color:white">Desbloquear ↑</button>
  </section>
@@ -96,12 +97,13 @@ body{margin:0;background:#17151b;display:grid;place-items:center;min-height:100d
 
  <section id="home" class="wall">
   <h2>Armando</h2>
-  <p>Martes · Un día más ♡</p>
+  <p>Martes</p>
   <div id="apps">
    <button class="app" onclick="openApp('messages')"><span>💬</span>Mensajes</button>
    <button class="app" onclick="openApp('phone')"><span>📞</span>Teléfono</button>
    <button class="app" onclick="openApp('social')"><span>📸</span>Instagram</button>
    <button class="app" onclick="openApp('photos')"><span>🌄</span>Fotos</button>
+   <button class="app" onclick="openApp('social')"><span>✖️</span>X</button>
    <button class="app" onclick="openApp('notes')"><span>📝</span>Notas</button>
    <button class="app" onclick="openApp('settings')"><span>⚙️</span>Ajustes</button>
   </div>
@@ -121,12 +123,11 @@ body{margin:0;background:#17151b;display:grid;place-items:center;min-height:100d
 </div>
 
 <script>
-const PASSCODE="0412"; // Cambia este código ficticio por el de tu AU.
+const PASSCODE="2004"; // 
 let entered="";
 let chats={
- Brian:[["them","¿Ya llegaste a casa?"],["me","Sí, ¿por qué?"],["them","Quería hablar contigo."]],
- Sam:[["them","ARMANDO, CONTESTA 😭"],["me","¿Qué pasó ahora?"]],
- Mamá:[["them","Avísame cuando llegues."]]
+ Brian:[["them","¿Podemos hablar?"],["me","te juro que se me fue el dedo"],["them","citaste esa cosa, wey"]],
+ Mateo:[["them","ARMANDO PQ CITABAS ESO?"],["me","ME EQUIVOQUÉ DE CUENTA 😭"]],
 };
 function showPass(){
  document.getElementById("pass").style.display="block";
