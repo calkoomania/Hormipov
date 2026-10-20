@@ -72,6 +72,25 @@ body{margin:0;background:#17151b;display:grid;place-items:center;min-height:100d
 .photo{height:180px;display:grid;place-items:center;background:linear-gradient(135deg,#e7d8ee,#c8c6ed);font-size:55px;border-radius:12px;margin:12px 0}
 #homebar{position:absolute;bottom:8px;left:35%;width:30%;height:5px;background:white;border-radius:5px}
 #appbarline{position:sticky;bottom:-15px;margin:35px auto 0;width:100px;height:5px;background:#aaa;border-radius:5px}
+
+/* Animaciones estilo iPhone */
+#lock, #pass, #home, #appview {
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+}
+
+.app span {
+  transition: transform 0.15s ease;
+}
+
+.app:active span {
+  transform: scale(0.88);
+}
+
 </style>
 </head>
 <body>
