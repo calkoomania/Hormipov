@@ -4,131 +4,196 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mi universo ♡</title>
-
+<title>Armando's iPhone</title>
 <style>
-* { box-sizing: border-box; }
-
-body {
-  margin: 0;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(135deg, #f8ddea, #dcd8f7);
-  font-family: Arial, sans-serif;
-  color: #49364c;
+*{box-sizing:border-box}
+:root{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif}
+body{margin:0;background:#17151b;display:grid;place-items:center;min-height:100dvh;color:white}
+#phone{position:relative;width:min(410px,100vw);height:min(850px,100dvh);min-height:600px;overflow:hidden;background:#17151b}
+.wall{
+ background-image:linear-gradient(#17151b22,#17151b55),url("armando.jpg");
+ background-size:cover;background-position:center
 }
-
-.phone {
-  width: 340px;
-  max-width: 94vw;
-  min-height: 590px;
-  padding: 22px;
-  border: 7px solid #382e40;
-  border-radius: 38px;
-  background: #fffaff;
-  box-shadow: 0 15px 40px #57415b40;
-}
-
-.status {
-  display: flex;
-  justify-content: space-between;
-  font-size: 13px;
-}
-
-h1 {
-  margin-top: 35px;
-  font-size: 27px;
-}
-
-.subtitle { color: #9c7b9e; }
-
-.profile {
-  text-align: center;
-  background: #f6e7f3;
-  padding: 18px;
-  border-radius: 22px;
-  margin: 25px 0;
-}
-
-.avatar { font-size: 50px; }
-
-button {
-  width: 100%;
-  padding: 14px;
-  margin: 5px 0;
-  border: none;
-  border-radius: 14px;
-  background: #96739d;
-  color: white;
-  font-size: 15px;
-  cursor: pointer;
-}
-
-button:active { transform: scale(.97); }
-
-#screen {
-  margin-top: 16px;
-  padding: 15px;
-  background: #f8f0f8;
-  border-radius: 15px;
-  min-height: 75px;
-  line-height: 1.7;
-  overflow-wrap: anywhere;
-}
-
-.small {
-  text-align: center;
-  font-size: 11px;
-  color: #a18ca4;
-  margin-top: 20px;
-}
+#lock{position:absolute;inset:0;text-align:center;padding:65px 22px 30px}
+#date{font-size:16px;font-weight:500}
+#clock{font-size:clamp(70px,20vw,96px);font-weight:200;letter-spacing:-4px;line-height:1.15;margin-top:8px}
+#hint{margin-top:35px;font-size:15px;text-shadow:0 1px 5px #333}
+#notifications{margin-top:20px;text-align:left}
+.notice{padding:14px;margin:8px 0;background:#e5e2e4c9;color:#222;border-radius:18px;backdrop-filter:blur(20px);font-size:14px}
+.notice small{display:block;color:#555;margin-bottom:5px}
+#pass{position:absolute;inset:0;display:none;text-align:center;padding:65px 25px;background:#777777a8;backdrop-filter:blur(30px)}
+#pass h2{font-size:22px;font-weight:600}
+#pass p{font-size:14px}
+#dots{display:flex;justify-content:center;gap:15px;margin:25px}
+.dot{width:12px;height:12px;border:1px solid white;border-radius:50%}
+.dot.filled{background:white}
+#keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:290px;margin:25px auto}
+.key{height:65px;width:65px;justify-self:center;border:0;border-radius:50%;background:#ffffff30;color:white;font-size:27px;font-weight:300}
+.key small{display:block;font-size:9px;letter-spacing:1px}
+#message{font-size:13px;min-height:20px}
+#home{display:none;position:absolute;inset:0;padding:65px 22px 100px}
+#home h2{font-size:27px;font-weight:650}
+#home p{font-size:14px;color:#ffffffbd}
+#apps{display:grid;grid-template-columns:repeat(4,1fr);gap:25px 10px;margin-top:40px}
+.app{background:none;border:0;color:white;font-size:11px;text-align:center}
+.app span{display:grid;place-items:center;width:57px;height:57px;margin:0 auto 7px;border-radius:15px;background:#ffffffdb;color:#27232a;font-size:29px}
+#dock{position:absolute;bottom:20px;left:15px;right:15px;display:flex;justify-content:space-around;align-items:center;padding:12px 0;border-radius:25px;background:#ffffff4a;backdrop-filter:blur(25px)}
+#dock button{border:0;background:none;font-size:27px}
+#appview{display:none;position:absolute;inset:0;background:#f7f6fa;color:#222;padding:55px 20px 25px;overflow:auto}
+#appbar{display:flex;align-items:center;gap:12px;margin-bottom:24px}
+#appbar button{border:0;background:#e9e3ee;border-radius:12px;padding:10px}
+#apptitle{font-size:23px;font-weight:700}
+.contact{display:flex;align-items:center;gap:12px;padding:15px 0;border-bottom:1px solid #e5e1e8}
+.avatar{width:45px;height:45px;border-radius:50%;background:#e3d4ef;display:grid;place-items:center;font-size:23px}
+.muted{font-size:12px;color:#777;margin-top:5px}
+.bubble{width:fit-content;max-width:85%;padding:11px 14px;margin:10px 0;background:#e8e4eb;border-radius:18px;overflow-wrap:anywhere}
+.bubble.me{margin-left:auto;background:#b8a0ed;color:#17151b}
+#chatinput{display:flex;gap:8px;margin-top:20px}
+#chatinput input{width:70%;min-width:0;border:1px solid #ddd;border-radius:20px;padding:12px}
+#chatinput button,.action{border:0;border-radius:18px;padding:12px;background:#9476bd;color:white}
+.post{padding:15px;margin:15px 0;border:1px solid #e5e1e8;border-radius:18px}
+.photo{height:180px;display:grid;place-items:center;background:linear-gradient(135deg,#e7d8ee,#c8c6ed);font-size:55px;border-radius:12px;margin:12px 0}
+#homebar{position:absolute;bottom:8px;left:35%;width:30%;height:5px;background:white;border-radius:5px}
+#appbarline{position:sticky;bottom:-15px;margin:35px auto 0;width:100px;height:5px;background:#aaa;border-radius:5px}
 </style>
 </head>
-
 <body>
-<main class="phone">
-  <div class="status">
-    <span>9:41</span>
-    <span>● ● ▰</span>
+<div id="phone">
+ <section id="lock" class="wall">
+  <div id="date">MARTES, 20 DE OCTUBRE</div>
+  <div id="clock">9:41</div>
+  <div id="hint">♡ El iPhone de Armando ♡</div>
+  <div id="notifications">
+   <div class="notice"><small>MENSAJES · AHORA</small><b>Brian</b><br>¿Ya llegaste a casa?</div>
+   <div class="notice"><small>INSTAGRAM · 2 min</small><b>Una nueva notificación</b><br>Alguien comentó tu publicación.</div>
   </div>
+  <button onclick="showPass()" style="position:absolute;bottom:35px;left:25%;width:50%;padding:13px;border:1px solid #ffffff88;border-radius:25px;background:#ffffff44;color:white">Desbloquear ↑</button>
+ </section>
 
-  <h1>Mi universo ♡</h1>
-  <p class="subtitle">your story, your rules ✧</p>
-
-  <section class="profile">
-    <div class="avatar">🎀</div>
-    <h2>Tu personaje</h2>
-    <p>Bienvenida a tu AU.</p>
-  </section>
-
-  <button onclick="show('chat')">💌 Mensajes</button>
-  <button onclick="show('calls')">☎️ Llamadas</button>
-  <button onclick="show('gallery')">📸 Galería</button>
-  <button onclick="show('social')">♡ Red social</button>
-
-  <div id="screen">
-    Holaaa ♡
-    <br>Elige una aplicación para comenzar.
+ <section id="pass">
+  <h2>Introduce el código</h2>
+  <p>iPhone de Armando</p>
+  <div id="dots">
+   <i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i>
   </div>
+  <div id="message">Introduce el código de 4 dígitos</div>
+  <div id="keypad">
+   <button class="key" onclick="digit('1')">1</button>
+   <button class="key" onclick="digit('2')">2<small>ABC</small></button>
+   <button class="key" onclick="digit('3')">3<small>DEF</small></button>
+   <button class="key" onclick="digit('4')">4<small>GHI</small></button>
+   <button class="key" onclick="digit('5')">5<small>JKL</small></button>
+   <button class="key" onclick="digit('6')">6<small>MNO</small></button>
+   <button class="key" onclick="digit('7')">7<small>PQRS</small></button>
+   <button class="key" onclick="digit('8')">8<small>TUV</small></button>
+   <button class="key" onclick="digit('9')">9<small>WXYZ</small></button>
+   <button class="key" style="visibility:hidden"></button>
+   <button class="key" onclick="digit('0')">0</button>
+   <button class="key" onclick="erase()" style="font-size:14px">Borrar</button>
+  </div>
+  <button onclick="hidePass()" style="border:0;background:none;color:white">Cancelar</button>
+ </section>
 
-  <p class="small">made with love ✧</p>
-</main>
+ <section id="home" class="wall">
+  <h2>Armando</h2>
+  <p>Martes · Un día más ♡</p>
+  <div id="apps">
+   <button class="app" onclick="openApp('messages')"><span>💬</span>Mensajes</button>
+   <button class="app" onclick="openApp('phone')"><span>📞</span>Teléfono</button>
+   <button class="app" onclick="openApp('social')"><span>📸</span>Instagram</button>
+   <button class="app" onclick="openApp('photos')"><span>🌄</span>Fotos</button>
+   <button class="app" onclick="openApp('notes')"><span>📝</span>Notas</button>
+   <button class="app" onclick="openApp('settings')"><span>⚙️</span>Ajustes</button>
+  </div>
+  <div id="dock">
+   <button onclick="openApp('phone')">📞</button>
+   <button onclick="openApp('messages')">💬</button>
+   <button onclick="openApp('social')">📸</button>
+   <button onclick="openApp('photos')">🌄</button>
+  </div>
+  <div id="homebar"></div>
+ </section>
+
+ <section id="appview">
+  <div id="appbar"><button onclick="goHome()">‹ Inicio</button><div id="apptitle"></div></div>
+  <div id="appbody"></div><div id="appbarline"></div>
+ </section>
+</div>
 
 <script>
-function show(app) {
-  const screen = document.getElementById('screen');
-
-  const pages = {
-    chat: '<b>Mensajes 💌</b><br><br>Alex: ¿Ya llegaste?<br><br>Tú: Sipi ♡<br><br>Alex: Te estaba esperando.',
-    calls: '<b>Teléfono ☎️</b><br><br>Alex ♡<br>Llamada perdida · 9:41 PM',
-    gallery: '<b>Galería 📸</b><br><br>Tu álbum de recuerdos está vacío ♡',
-    social: '<b>Social ♡</b><br><br>@alex publicó una foto nueva ✧<br><br>♡ 124 Me gusta'
-  };
-
-  screen.innerHTML = pages[app];
+const PASSCODE="0412"; // Cambia este código ficticio por el de tu AU.
+let entered="";
+let chats={
+ Brian:[["them","¿Ya llegaste a casa?"],["me","Sí, ¿por qué?"],["them","Quería hablar contigo."]],
+ Sam:[["them","ARMANDO, CONTESTA 😭"],["me","¿Qué pasó ahora?"]],
+ Mamá:[["them","Avísame cuando llegues."]]
+};
+function showPass(){
+ document.getElementById("pass").style.display="block";
+ document.getElementById("message").textContent="Introduce el código de 4 dígitos";
 }
+function hidePass(){document.getElementById("pass").style.display="none";entered="";updateDots()}
+function updateDots(){
+ document.querySelectorAll(".dot").forEach((d,i)=>d.classList.toggle("filled",i<entered.length));
+}
+function digit(n){
+ if(entered.length>=4)return;
+ entered+=n;updateDots();
+ if(entered.length===4){
+  if(entered===PASSCODE){
+   document.getElementById("lock").style.display="none";
+   document.getElementById("pass").style.display="none";
+   document.getElementById("home").style.display="block";
+  }else{
+   document.getElementById("message").textContent="Código incorrecto. Intenta otra vez.";
+   setTimeout(()=>{entered="";updateDots()},650);
+  }
+ }
+}
+function erase(){entered=entered.slice(0,-1);updateDots()}
+function goHome(){
+ document.getElementById("appview").style.display="none";
+ document.getElementById("home").style.display="block";
+}
+function openApp(app){
+ document.getElementById("home").style.display="none";
+ document.getElementById("appview").style.display="block";
+ const title=document.getElementById("apptitle");
+ const body=document.getElementById("appbody");
+ title.textContent=({messages:"Mensajes",phone:"Teléfono",social:"Instagram",photos:"Fotos",notes:"Notas",settings:"Ajustes"})[app];
+ if(app==="messages")renderContacts();
+ if(app==="phone")body.innerHTML='<h3>Recientes</h3><div class="contact">📞 Brian · Llamada perdida</div><div class="contact">📞 Sam · Ayer</div><p class="muted">Llamadas simuladas.</p>';
+ if(app==="social")body.innerHTML='<h3>Para ti</h3><article class="post"><b>@armando</b><div class="photo">🌆</div><p>Una noche para recordar.</p><button class="action" onclick="like(this)">♡ Me gusta</button></article><article class="post"><b>@brian</b><div class="photo">🪻</div><p>Últimamente ♡</p><button class="action" onclick="like(this)">♡ Me gusta</button></article>';
+ if(app==="photos")body.innerHTML='<h3>Recuerdos</h3><div class="photo">🌄</div><p>Tu galería ficticia.</p>';
+ if(app==="notes")body.innerHTML='<h3>Notas</h3><textarea placeholder="Escribe un secreto..." style="width:100%;height:180px;border:1px solid #ddd;border-radius:12px;padding:12px"></textarea><p class="muted">Las notas son temporales.</p>';
+ if(app==="settings")body.innerHTML='<h3>Ajustes</h3><p>iPhone de Armando ♡</p><p class="muted">Código ficticio: puedes cambiar PASSCODE en el código fuente.</p><p>Fondo: armando.jpg</p>';
+}
+function renderContacts(){
+ const body=document.getElementById("appbody");
+ body.innerHTML="<p class='muted'>Conversaciones</p>";
+ Object.keys(chats).forEach(name=>{
+  const el=document.createElement("div");el.className="contact";
+  el.innerHTML='<div class="avatar">♡</div><div><b></b><div class="muted"></div></div>';
+  el.querySelector("b").textContent=name;
+  el.querySelector(".muted").textContent=chats[name].at(-1)[1];
+  el.onclick=()=>openChat(name);body.appendChild(el);
+ });
+}
+function openChat(name){
+ document.getElementById("apptitle").textContent=name;
+ const body=document.getElementById("appbody");
+ body.innerHTML='<div id="chatlist"></div><form id="chatinput"><input id="msg" placeholder="iMessage" autocomplete="off"><button>➤</button></form><p class="muted">Conversación ficticia.</p>';
+ const list=document.getElementById("chatlist");
+ chats[name].forEach(m=>addBubble(list,m[0],m[1]));
+ document.getElementById("chatinput").onsubmit=e=>{
+  e.preventDefault();const input=document.getElementById("msg");const val=input.value.trim();
+  if(!val)return;chats[name].push(["me",val]);addBubble(list,"me",val);input.value="";
+ };
+}
+function addBubble(list,who,msg){
+ const b=document.createElement("div");b.className="bubble "+(who==="me"?"me":"");b.textContent=msg;list.appendChild(b);
+}
+function like(button){button.textContent=button.textContent.includes("Me gusta")?"♥ Te gusta":"♡ Me gusta"}
 </script>
 </body>
 </html>
