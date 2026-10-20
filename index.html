@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mi universo ♡</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #f8ddea, #dcd8f7);
+  font-family: Arial, sans-serif;
+  color: #49364c;
+}
+
+.phone {
+  width: 340px;
+  max-width: 94vw;
+  min-height: 590px;
+  padding: 22px;
+  border: 7px solid #382e40;
+  border-radius: 38px;
+  background: #fffaff;
+  box-shadow: 0 15px 40px #57415b40;
+}
+
+.status {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+h1 {
+  margin-top: 35px;
+  font-size: 27px;
+}
+
+.subtitle { color: #9c7b9e; }
+
+.profile {
+  text-align: center;
+  background: #f6e7f3;
+  padding: 18px;
+  border-radius: 22px;
+  margin: 25px 0;
+}
+
+.avatar { font-size: 50px; }
+
+button {
+  width: 100%;
+  padding: 14px;
+  margin: 5px 0;
+  border: none;
+  border-radius: 14px;
+  background: #96739d;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+button:active { transform: scale(.97); }
+
+#screen {
+  margin-top: 16px;
+  padding: 15px;
+  background: #f8f0f8;
+  border-radius: 15px;
+  min-height: 75px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.small {
+  text-align: center;
+  font-size: 11px;
+  color: #a18ca4;
+  margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+<main class="phone">
+  <div class="status">
+    <span>9:41</span>
+    <span>● ● ▰</span>
+  </div>
+
+  <h1>Mi universo ♡</h1>
+  <p class="subtitle">your story, your rules ✧</p>
+
+  <section class="profile">
+    <div class="avatar">🎀</div>
+    <h2>Tu personaje</h2>
+    <p>Bienvenida a tu AU.</p>
+  </section>
+
+  <button onclick="show('chat')">💌 Mensajes</button>
+  <button onclick="show('calls')">☎️ Llamadas</button>
+  <button onclick="show('gallery')">📸 Galería</button>
+  <button onclick="show('social')">♡ Red social</button>
+
+  <div id="screen">
+    Holaaa ♡
+    <br>Elige una aplicación para comenzar.
+  </div>
+
+  <p class="small">made with love ✧</p>
+</main>
+
+<script>
+function show(app) {
+  const screen = document.getElementById('screen');
+
+  const pages = {
+    chat: '<b>Mensajes 💌</b><br><br>Alex: ¿Ya llegaste?<br><br>Tú: Sipi ♡<br><br>Alex: Te estaba esperando.',
+    calls: '<b>Teléfono ☎️</b><br><br>Alex ♡<br>Llamada perdida · 9:41 PM',
+    gallery: '<b>Galería 📸</b><br><br>Tu álbum de recuerdos está vacío ♡',
+    social: '<b>Social ♡</b><br><br>@alex publicó una foto nueva ✧<br><br>♡ 124 Me gusta'
+  };
+
+  screen.innerHTML = pages[app];
+}
+</script>
+</body>
+</html>
