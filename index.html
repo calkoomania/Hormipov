@@ -10,9 +10,26 @@
 :root{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif}
 body{margin:0;background:#17151b;display:grid;place-items:center;min-height:100dvh;color:white}
 #phone{position:relative;width:min(410px,100vw);height:min(850px,100dvh);min-height:600px;overflow:hidden;background:#17151b}
-.wall{
- background-image:linear-gradient(#17151b22,#17151b55),url("armando.jpg");
- background-size:cover;background-position:center
+.wall {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#lock {
+  background-image:
+    linear-gradient(#00000022, #00000030),
+    url("86ae77ba75fd3710cfbc1b9ef6a96de2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#home {
+  background-image:
+    linear-gradient(#00000020, #00000035),
+    url("b459eaadd4c843dff78de783513ab8e5.jpg");
+  background-size: cover;
+  background-position: center;
 }
 #lock{position:absolute;inset:0;text-align:center;padding:65px 22px 30px}
 #date{font-size:16px;font-weight:500}
