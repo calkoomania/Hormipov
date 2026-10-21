@@ -1141,7 +1141,9 @@ const titles = {
   music: "Música"
 };
  $("apptitle").textContent=titles[app]||app;
-if (app === "twitter") renderX();
+if (app === "twitter" || app === "x") {
+  renderX();
+}
 if (app === "chatgpt") {
   $("appbody").innerHTML =
     "<h3>ChatGPT</h3><p>¿En qué puedo ayudarte?</p>" +
