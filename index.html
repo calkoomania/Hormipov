@@ -505,6 +505,13 @@ function setDate(){
     fecha.charAt(0).toUpperCase() + fecha.slice(1);
 }
 
+  function updateDateTime(){
+  updateClock();
+  setDate();
+}
+
+updateDateTime();
+setInterval(updateDateTime, 15000);
 function showPass(){if(unlocked)return;$("pass").style.display="block";$("passerror").textContent="Introduce el código de 4 dígitos";}
 function hidePass(){if(unlocked)return;$("pass").style.display="none";entered="";updateDots();}
 function updateDots(){$$("dot").forEach((d,i)=>d.classList.toggle("filled",i<entered.length));}
