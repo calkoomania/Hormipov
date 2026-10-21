@@ -221,18 +221,46 @@ place-items:center;flex-shrink:0;color:white;font-size:17px;font-weight:700;
 .nrow b{font-weight:650;letter-spacing:.3px}
 .ncontent strong{display:block;font-size:13px;margin-bottom:2px;font-weight:650}
 .ncontent p{font-size:12px;line-height:1.35;margin:0;overflow-wrap:anywhere}
-#lockbottom{  
-  position:absolute;bottom:17px;left:0;right:0;  
-  display:flex;align-items:center;justify-content:space-between;padding:0 28px;  
-}  
-.lockcircle{  
-  border:1px solid #ffffff65;background:#ffffff38;color:white;  
-  width:49px;height:49px;border-radius:50%;font-size:21px;  
-  backdrop-filter:blur(20px);  
-}  
-#lockhint{  
-  font-size:12px;background:#ffffff30;border-radius:20px;padding:9px 14px;  
-  backdrop-filter:blur(20px);animation:pulse 2s infinite;  
+#lockbottom {
+  position: absolute;
+  bottom: 34px;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 27px;
+  z-index: 4;
+}
+
+.lockcircle {
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 50%;
+  background: rgba(35,35,40,.42);
+  color: #fff;
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+
+.lockcircle svg {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.lockcircle:active {
+  background: rgba(120,120,125,.55);
+  transform: scale(.94);
 }
 @keyframes pulse{50%{opacity:.65}}
 #pass{
@@ -390,14 +418,31 @@ place-items:center;flex-shrink:0;color:white;font-size:17px;font-weight:700;
    <div id="lockextras"><span>☁ 21°</span><span>Armando's iPhone</span></div>
   </div>
   <div id="notifications"></div>
-  <div id="lockbottom">
-   <button class="lockcircle" aria-label="Linterna" onclick="toast('Linterna','Esta función es decorativa.')">ϟ</button>
-   <button id="lockhint" onclick="showPass()">
-  Desliza hacia arriba para abrir
-   </button>
-   <button class="lockcircle" aria-label="Cámara" onclick="toast('Cámara','La cámara es parte de esta simulación.')">◎</button>
-  </div>
- </section>
+<div id="lockbottom">
+  <button class="lockcircle" aria-label="Linterna"
+    onclick="toast('Linterna','Esta función es decorativa.')">
+    <svg viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="1.8"
+      stroke-linecap="round" stroke-linejoin="round">
+      <path d="M9 3h6l-1 5 3 4H7l3-4-1-5Z"/>
+      <path d="M10 12l-1 9h6l-1-9"/>
+    </svg>
+  </button>
+
+  <button id="lockhint" onclick="showPass()">
+    Desliza hacia arriba para abrir
+  </button>
+
+  <button class="lockcircle" aria-label="Cámara"
+    onclick="toast('Cámara','La cámara es parte de esta simulación.')">
+    <svg viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="1.8"
+      stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 8h4l1.5-2h5L16 8h4v11H4V8Z"/>
+      <circle cx="12" cy="13" r="3.5"/>
+    </svg>
+  </button>
+</div>
 
  <section id="pass">
   <div style="font-size:43px;margin-top:12px">Lockscreen</div>
