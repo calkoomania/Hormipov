@@ -1002,6 +1002,55 @@ function setDate(){
 
 updateDateTime();
 setInterval(updateDateTime, 15000);
+
+  // RELOJES DE GUADALAJARA Y CHICAGO
+
+function updateWorldClocks() {
+
+  const now = new Date();
+
+  const cities = [
+    {
+      clock: "guadalajara-clock",
+      date: "guadalajara-date",
+      zone: "America/Mexico_City"
+    },
+    {
+      clock: "chicago-clock",
+      date: "chicago-date",
+      zone: "America/Chicago"
+    }
+  ];
+
+  cities.forEach(city => {
+
+    const time = new Intl.DateTimeFormat("es-MX", {
+      timeZone: city.zone,
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false
+    }).format(now);
+
+    const date = new Intl.DateTimeFormat("es-MX", {
+      timeZone: city.zone,
+      weekday: "short",
+      day: "numeric",
+      month: "long"
+    }).format(now);
+
+    document.getElementById(city.clock).textContent = time;
+
+    document.getElementById(city.date).textContent = date;
+
+  });
+
+}
+
+// Actualizar al abrir la página
+updateWorldClocks();
+
+// Actualizar automáticamente cada segundo
+setInterval(updateWorldClocks, 1000);
 function showPass(){if(unlocked)return;$("pass").style.display="block";$("passerror").textContent="Introduce el código de 4 dígitos";}
 function hidePass(){if(unlocked)return;$("pass").style.display="none";entered="";updateDots();}
 function updateDots(){$$("dot").forEach((d,i)=>d.classList.toggle("filled",i<entered.length));}
