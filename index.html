@@ -31,11 +31,65 @@ button{cursor:pointer;-webkit-tap-highlight-color:transparent}
 #homewall{
   background-image:linear-gradient(#10101b20,#10101b30),url("b459eaadd4c843dff78de783513ab8e5.jpg");
 }
-#status{
-  position:absolute;top:0;left:0;right:0;height:42px;
-  padding:12px 28px 0;display:flex;justify-content:space-between;
-  font-size:12px;font-weight:600;z-index:4;
-  text-shadow:0 1px 4px #333;
+
+#status {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 44px;
+  padding: 12px 27px 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  font-size: 15px;
+  line-height: 18px;
+  font-weight: 650;
+  letter-spacing: -.2px;
+  z-index: 10;
+  color: white;
+  text-shadow: 0 1px 3px #0005;
+}
+
+.status-icons {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: 17px;
+}
+
+.status-icons svg {
+  width: 17px;
+  height: 14px;
+  display: block;
+}
+
+.battery-icon {
+  position: relative;
+  width: 23px;
+  height: 12px;
+  border: 1.5px solid currentColor;
+  border-radius: 3.5px;
+  padding: 1.5px;
+  margin-left: 1px;
+}
+
+.battery-icon::after {
+  content: "";
+  position: absolute;
+  right: -4px;
+  top: 3px;
+  width: 2.5px;
+  height: 4px;
+  background: currentColor;
+  border-radius: 0 2px 2px 0;
+}
+
+.battery-fill {
+  width: 78%;
+  height: 100%;
+  border-radius: 1px;
+  background: currentColor;
 }
 #lock,#home{position:absolute;inset:0;overflow:hidden}
 #lock{touch-action:pan-y}
