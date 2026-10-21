@@ -1184,9 +1184,10 @@ function digit(n){
 }
 function erase(){entered=entered.slice(0,-1);updateDots();}
 function goHome(){
- $("appview").style.display="none";
- $("home").style.display="block";
- activeApp="";
+  $("appview").style.display = "none";
+  $("appview").classList.remove("x-mode");
+  $("home").style.display = "block";
+  activeApp = "";
 }
 function startStory(){
  if(storyStarted)return;
@@ -1251,7 +1252,10 @@ const titles = {
 };
  $("apptitle").textContent=titles[app]||app;
 if (app === "twitter" || app === "x") {
+  $("appview").classList.add("x-mode");
   renderX();
+} else {
+  $("appview").classList.remove("x-mode");
 }
 if (app === "chatgpt") {
   $("appbody").innerHTML =
