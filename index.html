@@ -212,11 +212,31 @@ button{cursor:pointer;-webkit-tap-highlight-color:transparent}
 <div id="phone">
  <div id="lockwall" class="wall"></div>
  <div id="homewall" class="wall" style="display:none"></div>
-
- <div id="status">
+  
+<div id="status">
   <span id="statusTime">9:41</span>
-  <span>▂ ▄ ▆　◉　▰</span>
- </div>
+
+  <div class="status-icons">
+    <svg viewBox="0 0 20 16" aria-label="Señal celular">
+      <rect x="1" y="10" width="3" height="5" rx="1" fill="currentColor"/>
+      <rect x="6" y="7" width="3" height="8" rx="1" fill="currentColor"/>
+      <rect x="11" y="4" width="3" height="11" rx="1" fill="currentColor"/>
+      <rect x="16" y="1" width="3" height="14" rx="1" fill="currentColor"/>
+    </svg>
+
+    <svg viewBox="0 0 20 16" aria-label="Wi-Fi">
+      <path d="M2 5 Q10 -1 18 5 L10 14 Z"
+        fill="currentColor"/>
+      <path d="M5 8 Q10 4 15 8 L10 14 Z"
+        fill="currentColor" opacity=".75"/>
+      <circle cx="10" cy="13" r="1.4" fill="currentColor"/>
+    </svg>
+
+    <div class="battery-icon" aria-label="Batería">
+      <div class="battery-fill"></div>
+    </div>
+  </div>
+</div>
 
  <section id="lock">
   <div id="lockhead">
