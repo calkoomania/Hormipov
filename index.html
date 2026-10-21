@@ -143,7 +143,17 @@ button{cursor:pointer;-webkit-tap-highlight-color:transparent}
 #lock{touch-action:pan-y}
 #lockhead{text-align:center;padding-top:67px;text-shadow:0 2px 8px #333}
 #date{font-size:17px;font-weight:550}
-#clock{font-size:clamp(76px,22vw,100px);font-weight:200;letter-spacing:-5px;line-height:1.12;margin-top:4px}
+#clock {
+  font-family: "Roboto", sans-serif !important;
+  font-size: clamp(76px, 22vw, 100px) !important;
+  font-weight: 100 !important;
+  font-style: normal !important;
+  letter-spacing: -3px !important;
+  line-height: 1.12 !important;
+  margin-top: 4px;
+  -webkit-font-smoothing: antialiased;
+  font-synthesis: none;
+}
 #lockextras{display:flex;justify-content:center;align-items:center;gap:22px;margin-top:10px;font-size:12px}
 #weather{font-size:14px}
 #notifications{
