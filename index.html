@@ -519,22 +519,23 @@ let storyTimers=[],storyStarted=false,toastTimer=null;
 const $=id=>document.getElementById(id);
 
 const events=[
- {delay:1200,type:"x",title:"X",headline:"@calkoomania · hace un momento",text:"¿ARMANDO CITANDO UN AU DE BRIAN Y MATEO?",icon:"𝕏",cls:"xicon"},
+ {delay:1200,type:"x",title:"X",headline:"@calkoomania · hace un momento",text:"OIGAN, ¿ESA ES LA CUENTA DE ARMANDO?",icon:"𝕏",cls:"xicon"},
  {delay:3300,type:"x",title:"X",headline:"A alguien le gustó tu publicación",text:"Tu cita recibió 1,284 Me gusta. La gente está empezando a compartirla.",icon:"𝕏",cls:"xicon"},
- {delay:5200,type:"mateo",title:"Mateo",headline:"iMessage · ahora",text:"NMMS ARMANDO ¿QUÉ ES LO QUE ANDAS VIENDO?",icon:"M",cls:"msgicon"},
+ {delay:5200,type:"mateo",title:"Mateo",headline:"iMessage · ahora",text:"ARMANDO, TU CUENTA DE X ES @mando34uwu???",icon:"M",cls:"msgicon"},
  {delay:7200,type:"x",title:"X",headline:"@brimiga nation · hace un momento",text:"UNA VICTORIA MÁS AL BRIMIGA 🔥",icon:"𝕏",cls:"xicon"},
  {delay:9400,type:"brian",title:"Brian",headline:"Llamada perdida",text:"Brian intentó llamarte. Toca para ver las llamadas recientes.",icon:"☎",cls:"callicon"},
- {delay:11200,type:"brian",title:"Brian",headline:"iMessage · ahora",text:"wtf con tu citado? qué es brimiga y hormian?",icon:"B",cls:"msgicon"},
+ {delay:11200,type:"brian",title:"Brian",headline:"iMessage · ahora",text:"Ey q pedo, armando. ¿pq somos tendencia en twitter?",icon:"B",cls:"msgicon"},
  {delay:13100,type:"x",title:"X",headline:"@Hormian nation publicó una respuesta",text:"HORMIAN CANON!",icon:"𝕏",cls:"xicon"},
- {delay:14900,type:"mateo",title:"Mateo",headline:"iMessage · ahora",text:"No sabía que te interesaban TANTO esas cosas conmigo y Brian XDD",icon:"M",cls:"msgicon"},
+ {delay:14900,type:"mateo",title:"Mateo",headline:"iMessage · ahora",text:"ARMANDO NO MAMES, TE ESTÁN FILTRANDO TODO",icon:"M",cls:"msgicon"},
  {delay:16800,type:"x",title:"X",headline:"¡Tu publicación es viral!",text:"8,506 Me gusta · 5,204 reposts · 1,908 respuestas",icon:"𝕏",cls:"xicon"},
  {delay:18700,type:"brian",title:"Brian",headline:"Llamada perdida",text:"Brian intentó llamarte por segunda vez.",icon:"☎",cls:"callicon"},
- {delay:20600,type:"brian",title:"Brian",headline:"iMessage · ahora",text:"we tenemos q hablar, ya somos tendencia en twitter",icon:"B",cls:"msgicon"},
- {delay:22500,type:"x",title:"X",headline:"@Akuu publicó una respuesta",text:"O sea brimiga canon o neh",icon:"𝕏",cls:"xicon"},
- {delay:24500,type:"mateo",title:"Mateo",headline:"iMessage · ahora",text:"brian acaba de preguntarme pq te damos asco, pendejo",icon:"M",cls:"msgicon"},
+ {delay:20600,type:"brian",title:"Brian",headline:"iMessage · ahora",text:"que es brimiga y hormian?",icon:"B",cls:"msgicon"},
+ {delay:22500,type:"x",title:"X",headline:"@blue publicó una respuesta",text:"o sea brimiga canon o neh",icon:"𝕏",cls:"xicon"},
+ {delay:24500,type:"mateo",title:"Mateo",headline:"iMessage · ahora",text:"CONTESTA PENDEJO, PON TU CUENTA EN PRIVADO",icon:"M",cls:"msgicon"},
  {delay:26500,type:"x",title:"X",headline:"Tu publicación recibió más interacciones",text:"12,804 Me gusta · 9,201 reposts · 3,410 respuestas",icon:"𝕏",cls:"xicon"},
  {delay:28600,type:"brian",title:"Brian",headline:"Llamada perdida",text:"Brian intentó llamarte por tercera vez.",icon:"☎",cls:"callicon"},
- {delay:30700,type:"brian",title:"Brian",headline:"iMessage · ahora",text:"a la verga, pq andas leyendo esas cosas?",icon:"B",cls:"msgicon"}
+ {delay:30700,type:"brian",title:"Brian",headline:"iMessage · ahora",text:"a la verga, pq andas leyendo esas cosas, armando?",icon:"B",cls:"msgicon"}
+ {delay:30700,type:"brian",title:"Brian",headline:"iMessage · ahora",text:"Contesta, tenemos que hablar",icon:"B",cls:"msgicon"}
 ];
 
 let chats={
