@@ -47,10 +47,12 @@
 }
 
 #clock {
+  font-family: -apple-system, BlinkMacSystemFont,
+    "Helvetica Neue", Arial, sans-serif;
   font-size: clamp(88px, 23vw, 112px);
-  font-weight: 300;
-  letter-spacing: -5px;
-  line-height: 1.08;
+  font-weight: 600;
+  letter-spacing: -4px;
+  line-height: 1.05;
   margin-top: 22px;
   font-variant-numeric: tabular-nums;
 }
@@ -477,15 +479,31 @@ let tweets=[
 ];
 
 function updateClock(){
- const d=new Date();
- $("statusTime").textContent=d.toLocaleTimeString("es-MX",{hour:"2-digit",minute:"2-digit",hour12:false});
- $("homeclock").textContent=d.toLocaleTimeString("es-MX",{hour:"2-digit",minute:"2-digit",hour12:false});
+  const d = new Date();
+
+  const hora = d.toLocaleTimeString("es-MX", {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false
+  });
+
+  $("statusTime").textContent = hora;
+  $("clock").textContent = hora;
+  $("homeclock").textContent = hora;
 }
+
 function setDate(){
- const d=new Date();
- $("date").textContent=d.toLocaleDateString("es-MX",{weekday:"long",day:"numeric",month:"long"}).toUpperCase();
+  const d = new Date();
+
+  const fecha = d.toLocaleDateString("es-MX", {
+    weekday: "long",
+    day: "numeric",
+    month: "long"
+  });
+
+  $("date").textContent =
+    fecha.charAt(0).toUpperCase() + fecha.slice(1);
 }
-updateClock();setDate();setInterval(updateClock,15000);
 
 function showPass(){if(unlocked)return;$("pass").style.display="block";$("passerror").textContent="Introduce el código de 4 dígitos";}
 function hidePass(){if(unlocked)return;$("pass").style.display="none";entered="";updateDots();}
