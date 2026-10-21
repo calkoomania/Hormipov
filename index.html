@@ -720,6 +720,296 @@ place-items:center;flex-shrink:0;color:white;font-size:17px;font-weight:700;
   color: white;
   font-size: 23px;
 }
+  /* ==================================
+   X / TWITTER - DISEÑO DEL SIMULADOR
+================================== */
+
+#appview.x-mode {
+  background: #fff;
+  color: #0f1419;
+  padding: 0;
+  overflow: hidden;
+}
+
+#appview.x-mode #appheader {
+  display: none;
+}
+
+#appview.x-mode #appbody {
+  height: 100%;
+  padding: 0;
+}
+
+.x-app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  color: #0f1419;
+}
+
+.x-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 55px 18px 14px;
+  border-bottom: 1px solid #eff3f4;
+}
+
+.x-top-avatar,
+.x-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #ddd;
+}
+
+.x-top-avatar {
+  cursor: pointer;
+}
+
+.x-logo {
+  font-size: 34px;
+  font-weight: 400;
+}
+
+.x-tabs {
+  display: flex;
+  border-bottom: 1px solid #eff3f4;
+}
+
+.x-tab {
+  width: 50%;
+  padding: 17px 0;
+  border: 0;
+  background: white;
+  color: #536471;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.x-tab.active {
+  color: #0f1419;
+  border-bottom: 4px solid #1d9bf0;
+}
+
+.x-feed {
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.x-feed::-webkit-scrollbar {
+  display: none;
+}
+
+.x-post {
+  display: flex;
+  gap: 10px;
+  padding: 15px 13px;
+  border-bottom: 1px solid #eff3f4;
+  cursor: pointer;
+}
+
+.x-post-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.x-post-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+}
+
+.x-post-name {
+  font-weight: 750;
+}
+
+.x-post-user,
+.x-post-time {
+  color: #536471;
+  font-size: 13px;
+}
+
+.x-post-text {
+  font-size: 15px;
+  line-height: 1.5;
+  margin-top: 6px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.x-post-image {
+  width: 100%;
+  max-height: 330px;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 1px solid #eff3f4;
+  margin-top: 12px;
+}
+
+.x-post-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 17px;
+  color: #536471;
+}
+
+.x-post-actions button {
+  border: 0;
+  background: none;
+  color: inherit;
+  font-size: 13px;
+  padding: 3px;
+}
+
+.x-post-actions button.liked {
+  color: #f91880;
+}
+
+.x-quote {
+  border: 1px solid #cfd9de;
+  border-radius: 15px;
+  padding: 12px;
+  margin-top: 12px;
+}
+
+.x-quote-name {
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.x-quote-text {
+  font-size: 14px;
+  line-height: 1.4;
+  margin-top: 6px;
+  white-space: pre-wrap;
+}
+
+.x-end {
+  padding: 45px 20px;
+  text-align: center;
+}
+
+.x-end h3 {
+  font-size: 21px;
+}
+
+.x-end p {
+  color: #536471;
+  font-size: 14px;
+}
+
+.x-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 15px 0 22px;
+  border-top: 1px solid #eff3f4;
+  background: white;
+}
+
+.x-nav button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #0f1419;
+}
+
+.x-compose {
+  position: absolute;
+  right: 18px;
+  bottom: 92px;
+  width: 58px;
+  height: 58px;
+  border: 0;
+  border-radius: 50%;
+  background: #1d9bf0;
+  color: white;
+  font-size: 27px;
+  box-shadow: 0 4px 15px #0003;
+}
+
+/* MENÚ LATERAL */
+
+.x-overlay {
+  position: absolute;
+  inset: 0;
+  background: #0007;
+  z-index: 20;
+}
+
+.x-menu {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 84%;
+  background: white;
+  z-index: 21;
+  padding: 60px 22px;
+  overflow-y: auto;
+}
+
+.x-menu h2 {
+  margin-bottom: 4px;
+}
+
+.x-menu-user {
+  color: #536471;
+}
+
+.x-menu-item {
+  padding: 19px 0;
+  font-size: 20px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+/* PERFIL */
+
+.x-profile-banner {
+  height: 145px;
+  background: #cbd5e1;
+  background-size: cover;
+  background-position: center;
+}
+
+.x-profile-avatar {
+  width: 85px;
+  height: 85px;
+  border: 4px solid white;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: -42px;
+  margin-left: 15px;
+  background: #ddd;
+}
+
+.x-profile-info {
+  padding: 10px 16px 20px;
+}
+
+.x-profile-info h2 {
+  margin: 5px 0;
+}
+
+.x-profile-info p {
+  color: #536471;
+  font-size: 14px;
+}
+
+.x-back {
+  background: white;
+  border: none;
+  font-size: 20px;
+  padding: 17px;
+  text-align: left;
+}
 </style>
 </head>
 <body>
@@ -1184,11 +1474,12 @@ function digit(n){
 }
 function erase(){entered=entered.slice(0,-1);updateDots();}
 function goHome(){
+  closeXMenu();
   $("appview").style.display = "none";
   $("appview").classList.remove("x-mode");
   $("home").style.display = "block";
   activeApp = "";
-}
+    }
 function startStory(){
  if(storyStarted)return;
  storyStarted=true;
@@ -1252,7 +1543,8 @@ const titles = {
 };
  $("apptitle").textContent=titles[app]||app;
 if (app === "twitter" || app === "x") {
-  $("appview").classList.add("x-mode");
+  xScreen = "home";
+  xTab = "forYou";
   renderX();
 } else {
   $("appview").classList.remove("x-mode");
@@ -1277,30 +1569,482 @@ if (app === "gmail") {
  if(app==="notes")$("appbody").innerHTML="<h3>Nota sin título</h3><textarea style='width:100%;height:200px;border:1px solid #ddd;border-radius:12px;padding:12px' placeholder='Escribe algo...'></textarea><p class='muted'>Nota ficticia, no se guarda al recargar.</p>";
  if(app==="settings")renderSettings();
 }
-function renderX(){
- const body=$("appbody");
- body.innerHTML="<div style='display:flex;justify-content:space-between;align-items:center'><h3>Para ti</h3><span>𝕏</span></div><div class='sectionlabel'>TU PUBLICACIÓN VIRAL</div>";
- tweets.forEach((t,i)=>{
-  const el=document.createElement("article");el.className="tweet";
-  const head=document.createElement("div");head.className="tweethead";
-  const avatar=document.createElement("div");avatar.className="tweetavatar";avatar.textContent=t.avatar;
-  const info=document.createElement("div");info.innerHTML="<div class='tweetname'></div><div class='tweetuser'></div>";
-  info.children[0].textContent=t.name;info.children[1].textContent=t.user+" · "+t.time;
-  head.append(avatar,info);el.appendChild(head);
-  const p=document.createElement("p");p.textContent=t.text;el.appendChild(p);
-  const stats=document.createElement("div");stats.className="tweetstats";
-  [["♡",t.replies],["⇄",t.reposts],["♥",t.likes],["↗","Compartir"]].forEach((a,j)=>{
-   const b=document.createElement("button");b.textContent=a[0]+" "+a[1];
-   if(j===2)b.onclick=()=>{b.classList.toggle("liked");b.textContent=b.classList.contains("liked")?"♥ Te gusta":"♥ "+a[1];};
-   else if(j===0)b.onclick=()=>toast("Respuestas","Las respuestas son parte de esta historia ficticia.");
-   else if(j===1)b.onclick=()=>toast("Repost","Repost ficticio.");
-   else b.onclick=()=>toast("Compartir","Publicación ficticia.");
-   stats.appendChild(b);
-  });
-  el.appendChild(stats);body.appendChild(el);
- });
- const note=document.createElement("p");note.className="muted";note.textContent="Historia ficticia · Interacciones simuladas.";body.appendChild(note);
+/* ==================================
+   DATOS DEL PERFIL
+================================== */
+
+const xProfile = {
+  name: "notyiyi",
+  user: "@mando34uwu",
+  bio: "just living ♡",
+  avatar: "armando.jpg",
+  banner: "banner.jpg",
+  following: 120,
+  followers: 3500
+};
+
+/* ==================================
+   PLANTILLA DE PUBLICACIONES
+================================== */
+
+const xPosts = [
+
+  {
+    id: 1,
+    name: "notyiyi",
+    user: "@mando34uwu",
+    avatar: "armando.jpg",
+    time: "12 min",
+    text: "Esta es mi primera publicación ♡",
+
+    image: "",
+
+    likes: 120,
+    reposts: 34,
+
+    replies: [
+      {
+        name: "Brian",
+        user: "@brian",
+        avatar: "brian.jpg",
+        text: "Primera respuesta."
+      },
+
+      {
+        name: "Mateo",
+        user: "@mateo",
+        avatar: "mateo.jpg",
+        text: "Segunda respuesta JAJAJA."
+      }
+    ]
+  },
+
+  {
+    id: 2,
+    name: "notyiyi",
+    user: "@mando34uwu",
+    avatar: "armando.jpg",
+    time: "20 min",
+    text: "Esta es una publicación citada.",
+
+    image: "",
+
+    quote: {
+      name: "Brian",
+      user: "@brian",
+      text: "Este es el tuit original."
+    },
+
+    likes: 450,
+    reposts: 89,
+
+    replies: []
+  },
+
+  {
+    id: 3,
+    name: "Mateo",
+    user: "@mateo",
+    avatar: "mateo.jpg",
+    time: "30 min",
+    text: "Una publicación normal de Mateo.",
+
+    image: "",
+
+    likes: 210,
+    reposts: 12,
+
+    replies: []
+  }
+
+];
+
+/* ==================================
+   ESTADO DE X
+================================== */
+
+let xScreen = "home";
+let xTab = "forYou";
+let xMenuOpen = false;
+const xLikedPosts = new Set();
+
+function xEscape(value) {
+  return String(value ?? "").replace(/[&<>"']/g, char => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  })[char]);
 }
+
+function xImage(src, className) {
+  return src
+    ? `<img class="${className}" src="${xEscape(src)}" alt="Foto de perfil">`
+    : `<div class="${className}"></div>`;
+}
+
+/* ==================================
+   ABRIR X
+================================== */
+
+function renderX() {
+  $("appview").classList.add("x-mode");
+
+  $("appbody").innerHTML = `
+    <div class="x-app">
+
+      <div class="x-top">
+        <div onclick="openXMenu()">
+          ${xImage(xProfile.avatar, "x-top-avatar")}
+        </div>
+
+        <div class="x-logo">𝕏</div>
+
+        <div onclick="toast('Actualizar','Ya estás al día')"
+             style="font-size:22px;cursor:pointer">
+          ↻
+        </div>
+      </div>
+
+      <div class="x-tabs">
+        <button class="x-tab ${xTab === "forYou" ? "active" : ""}"
+                onclick="changeXTab('forYou')">
+          For you
+        </button>
+
+        <button class="x-tab ${xTab === "following" ? "active" : ""}"
+                onclick="changeXTab('following')">
+          Following
+        </button>
+      </div>
+
+      <div class="x-feed" id="xFeed"></div>
+
+      <button class="x-compose"
+              onclick="toast('Post','Función decorativa')">
+        ✎
+      </button>
+
+      <div class="x-nav">
+        <button onclick="showXHome()">⌂</button>
+        <button onclick="toast('Buscar','Función decorativa')">⌕</button>
+        <button onclick="toast('Explorar','Función decorativa')">↗</button>
+        <button onclick="toast('Notificaciones','Función decorativa')">♧</button>
+        <button onclick="toast('Mensajes','Función decorativa')">✉</button>
+      </div>
+
+    </div>
+  `;
+
+  renderXFeed();
+}
+
+/* ==================================
+   PUBLICACIONES
+================================== */
+
+function xPostHTML(post) {
+
+  const liked = xLikedPosts.has(post.id);
+
+  const quote = post.quote ? `
+    <div class="x-quote">
+      <div class="x-quote-name">
+        ${xEscape(post.quote.name)}
+        <span class="x-post-user">${xEscape(post.quote.user)}</span>
+      </div>
+      <div class="x-quote-text">${xEscape(post.quote.text)}</div>
+    </div>
+  ` : "";
+
+  return `
+    <article class="x-post" onclick="openXPost(${post.id})">
+
+      ${xImage(post.avatar, "x-avatar")}
+
+      <div class="x-post-content">
+
+        <div class="x-post-header">
+          <span class="x-post-name">${xEscape(post.name)}</span>
+          <span class="x-post-user">${xEscape(post.user)}</span>
+          <span class="x-post-time">· ${xEscape(post.time)}</span>
+        </div>
+
+        <div class="x-post-text">${xEscape(post.text)}</div>
+
+        ${post.image
+          ? `<img class="x-post-image" src="${xEscape(post.image)}" alt="Imagen de publicación">`
+          : ""
+        }
+
+        ${quote}
+
+        <div class="x-post-actions">
+
+          <button onclick="event.stopPropagation();openXPost(${post.id})">
+            ♧ ${post.replies.length}
+          </button>
+
+          <button onclick="event.stopPropagation();toast('Repost','Función decorativa')">
+            ⇄ ${post.reposts}
+          </button>
+
+          <button class="${liked ? "liked" : ""}"
+                  onclick="event.stopPropagation();likeXPost(${post.id})">
+            ${liked ? "♥" : "♡"} ${post.likes + (liked ? 1 : 0)}
+          </button>
+
+          <button onclick="event.stopPropagation();toast('Guardado','Función decorativa')">
+            ♧
+          </button>
+
+          <button onclick="event.stopPropagation();toast('Compartir','Función decorativa')">
+            ↥
+          </button>
+
+        </div>
+
+      </div>
+
+    </article>
+  `;
+}
+
+function renderXFeed() {
+
+  const feed = $("xFeed");
+  if (!feed) return;
+
+  let posts = xPosts;
+
+  if (xTab === "following") {
+    posts = xPosts.filter(post =>
+      post.user === xProfile.user ||
+      post.user === "@brian" ||
+      post.user === "@mateo"
+    );
+  }
+
+  feed.innerHTML = posts.map(xPostHTML).join("") + `
+    <div class="x-end">
+      <h3>✓ You're all caught up!</h3>
+      <p>You've seen all posts for now.</p>
+    </div>
+  `;
+}
+
+function changeXTab(tab) {
+  xTab = tab;
+  renderX();
+}
+
+function likeXPost(id) {
+
+  if (xLikedPosts.has(id)) {
+    xLikedPosts.delete(id);
+  } else {
+    xLikedPosts.add(id);
+  }
+
+  if (xScreen === "post") {
+    openXPost(id);
+  } else if (xScreen === "profile") {
+    openXProfile();
+  } else {
+    renderXFeed();
+  }
+}
+
+/* ==================================
+   ABRIR PUBLICACIÓN Y RESPUESTAS
+================================== */
+
+function openXPost(id) {
+
+  const post = xPosts.find(p => p.id === id);
+  if (!post) return;
+
+  xScreen = "post";
+
+  $("appbody").innerHTML = `
+    <div class="x-app">
+
+      <button class="x-back" onclick="showXHome()">
+        ‹ Post
+      </button>
+
+      <div class="x-feed">
+
+        ${xPostHTML(post)}
+
+        <div class="sectionlabel">
+          RESPUESTAS
+        </div>
+
+        ${post.replies.map(reply => `
+          <article class="x-post">
+
+            ${xImage(reply.avatar, "x-avatar")}
+
+            <div class="x-post-content">
+
+              <div class="x-post-header">
+                <span class="x-post-name">${xEscape(reply.name)}</span>
+                <span class="x-post-user">${xEscape(reply.user)}</span>
+              </div>
+
+              <div class="x-post-text">${xEscape(reply.text)}</div>
+
+            </div>
+
+          </article>
+        `).join("")}
+
+        ${post.replies.length === 0
+          ? `<div class="x-end"><p>No hay respuestas todavía.</p></div>`
+          : ""
+        }
+
+      </div>
+
+    </div>
+  `;
+}
+
+/* ==================================
+   MENÚ LATERAL
+================================== */
+
+function openXMenu() {
+
+  if ($("xMenuOverlay")) return;
+
+  const overlay = document.createElement("div");
+  overlay.id = "xMenuOverlay";
+  overlay.className = "x-overlay";
+  overlay.onclick = closeXMenu;
+
+  const menu = document.createElement("div");
+  menu.id = "xSideMenu";
+  menu.className = "x-menu";
+
+  menu.innerHTML = `
+    <button class="x-back" onclick="closeXMenu()">‹ Account</button>
+
+    ${xImage(xProfile.avatar, "x-avatar")}
+
+    <h2>${xEscape(xProfile.name)}</h2>
+
+    <div class="x-menu-user">${xEscape(xProfile.user)}</div>
+
+    <p class="x-menu-user">${xEscape(xProfile.bio)}</p>
+
+    <p><b>${xProfile.following}</b> Following</p>
+
+    <hr style="border:0;border-top:1px solid #eee;margin:25px 0">
+
+    <div class="x-menu-item" onclick="openXProfile()">
+      ♙ &nbsp; Profile
+    </div>
+
+    <div class="x-menu-item"
+         onclick="toast('Bookmarks','Función decorativa')">
+      ♧ &nbsp; Bookmarks
+    </div>
+
+    <div class="x-menu-item"
+         onclick="toast('Drafts','Función decorativa')">
+      ✎ &nbsp; Drafts
+    </div>
+
+    <div class="x-menu-item"
+         onclick="toast('Settings','Función decorativa')">
+      ⚙ &nbsp; Settings
+    </div>
+  `;
+
+  $("appview").append(overlay, menu);
+}
+
+function closeXMenu() {
+  $("xMenuOverlay")?.remove();
+  $("xSideMenu")?.remove();
+}
+
+/* ==================================
+   PERFIL
+================================== */
+
+function openXProfile() {
+
+  closeXMenu();
+  xScreen = "profile";
+
+  const myPosts = xPosts.filter(
+    post => post.user === xProfile.user
+  );
+
+  $("appbody").innerHTML = `
+    <div class="x-app">
+
+      <button class="x-back" onclick="showXHome()">
+        ‹ ${xEscape(xProfile.name)}
+      </button>
+
+      <div class="x-feed">
+
+        <div class="x-profile-banner"
+             style="background-image:url('${xEscape(xProfile.banner)}')">
+        </div>
+
+        ${xImage(xProfile.avatar, "x-profile-avatar")}
+
+        <div class="x-profile-info">
+
+          <h2>${xEscape(xProfile.name)}</h2>
+
+          <p>${xEscape(xProfile.user)}</p>
+
+          <div style="margin:20px 0;color:#0f1419">
+            ${xEscape(xProfile.bio)}
+          </div>
+
+          <p>
+            <b>${xProfile.following}</b> Following
+            &nbsp;&nbsp;
+            <b>${xProfile.followers}</b> Followers
+          </p>
+
+        </div>
+
+        <div class="x-tabs">
+          <button class="x-tab active">Posts</button>
+          <button class="x-tab" onclick="toast('Replies','Función decorativa')">
+            Replies
+          </button>
+        </div>
+
+        ${myPosts.map(xPostHTML).join("")}
+
+        <div class="x-end">
+          <p>You've seen all posts.</p>
+        </div>
+
+      </div>
+
+    </div>
+  `;
+}
+
+/* ==================================
+   REGRESAR AL INICIO DE X
+================================== */
+
+function showXHome() {
+  xScreen = "home";
+  renderX();
+  }
 function renderContacts(){
  const body=$("appbody");body.innerHTML="<div class='sectionlabel'>FIJADOS</div>";
  ["Brian","Mateo","Mamá"].forEach(name=>{
