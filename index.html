@@ -1074,17 +1074,41 @@ function openApp(app){
  activeApp=app;activeChat="";
  $("home").style.display="none";$("appview").style.display="block";
  $("appbody").innerHTML="";
- const titles={x:"X",messages:"Mensajes",phone:"Teléfono",photos:"Fotos",instagram:"Instagram",spotify:"Spotify",notes:"Notas",settings:"Ajustes",safari:"Safari",music:"Música"};
+const titles = {
+  x: "X",
+  twitter: "Twitter",
+  chatgpt: "ChatGPT",
+  gmail: "Gmail",
+  messages: "Mensajes",
+  phone: "Teléfono",
+  photos: "Fotos",
+  instagram: "Instagram",
+  spotify: "Spotify",
+  notes: "Notas",
+  settings: "Ajustes",
+  safari: "Chrome",
+  music: "Música"
+};
  $("apptitle").textContent=titles[app]||app;
- if(app==="x")renderX();
+if (app === "twitter") renderX();
+if (app === "chatgpt") {
+  $("appbody").innerHTML =
+    "<h3>ChatGPT</h3><p>¿En qué puedo ayudarte?</p>" +
+    "<p class='muted'>Simulación de la aplicación.</p>";
+}
+if (app === "gmail") {
+  $("appbody").innerHTML =
+    "<h3>Gmail</h3><p>No tienes correos nuevos.</p>" +
+    "<p class='muted'>Bandeja de entrada simulada.</p>";
+}
  if(app==="messages")renderContacts();
  if(app==="phone")renderPhone();
  if(app==="photos")$("appbody").innerHTML="<h3>Fotos</h3><p>Recuerdos de Armando</p><div class='postphoto'>🌆</div><div class='postphoto'>🪻</div>";
- if(app==="instagram")$("appbody").innerHTML="<h3>Instagram</h3><div class='post'><b>@armando</b><div class='postphoto'>🌃</div><p>una noche normal... supuestamente.</p>♡ 2,304 Me gusta</div>";
- if(app==="spotify")$("appbody").innerHTML="<h3>Escuchado recientemente</h3><div class='contact'><div class='avatar'>♫</div><div><b>Playlist de Armando</b><div class='muted'>No me hablen por favor</div></div></div>";
+ if(app==="instagram")$("appbody").innerHTML="<h3>Instagram</h3><div class='post'><b>@hormiga gonzales</b><div class='postphoto'>🌃</div><p>LOS CAMINOS DE DIOS SON PERFECTOS.</p>♡ 122,304 Me gusta</div>";
+ if(app==="spotify")$("appbody").innerHTML="<h3>Escuchado recientemente</h3><div class='contact'><div class='avatar'>♫</div><div><b>Playlist de Armando</b><div class='muted'>musica de la buena</div></div></div>";
  if(app==="music")$("appbody").innerHTML="<h3>Música</h3><div class='postphoto'>♫</div><p>Ahora suena: canciones para ignorar el caos.</p>";
- if(app==="safari")$("appbody").innerHTML="<h3>Safari</h3><p>Tu historial de navegación ficticio.</p><div class='contact'>🔎　edits brian mateo</div><div class='contact'>🔎　cómo borrar un post viral</div>";
- if(app==="notes")$("appbody").innerHTML="<h3>Nota sin título</h3><textarea style='width:100%;height:200px;border:1px solid #ddd;border-radius:12px;padding:12px' placeholder='No debí publicar eso...'></textarea><p class='muted'>Nota ficticia, no se guarda al recargar.</p>";
+ if(app==="safari")$("appbody").innerHTML="<h3>Safari</h3><p>Tu historial de navegación ficticio.</p><div class='contact'>🔎　qué es un au?</div><div class='contact'>🔎　cómo borrar un post de twitter</div>";
+ if(app==="notes")$("appbody").innerHTML="<h3>Nota sin título</h3><textarea style='width:100%;height:200px;border:1px solid #ddd;border-radius:12px;padding:12px' placeholder='Escribe algo...'></textarea><p class='muted'>Nota ficticia, no se guarda al recargar.</p>";
  if(app==="settings")renderSettings();
 }
 function renderX(){
