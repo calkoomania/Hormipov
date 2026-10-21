@@ -8,7 +8,13 @@
 <title>Armando · iPhone</title>
 <style>
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300&display=swap');
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("SFPRODISPLAYBOLD.OTF") format("opentype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
   
 :root {
   font-family: -apple-system, BlinkMacSystemFont,
@@ -49,13 +55,14 @@
 }
 
 #clock {
-    font-family: 'Roboto', sans-serif !important;
-    font-size: clamp(88px, 23vw, 112px) !important;
-    font-weight: 100 !important;
-    letter-spacing: -2px !important;
-    line-height: 1.05 !important;
-    -webkit-font-smoothing: antialiased;
-    font-variant-numeric: lining-nums tabular-nums;
+  font-family: "SF Pro Display", sans-serif !important;
+  font-size: clamp(76px, 22vw, 100px) !important;
+  font-weight: 100 !important;
+  font-style: normal;
+  letter-spacing: -3px;
+  line-height: 1.12;
+  margin-top: 4px;
+  font-synthesis: none;
 }
 
 #lockextras {
